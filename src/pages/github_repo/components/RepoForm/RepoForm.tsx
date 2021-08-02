@@ -3,7 +3,7 @@ import style from './repoForm.module.css';
 import styleList from '../RepoList/repoList.module.css';
 import axios from 'axios';
 import RepoList from "../RepoList/RepoList";
-import {IRepo} from "../../../pages/github_repo/types";
+import {IRepo} from "../../types";
 import RepoPopup from "../RepoPopup/RepoPopup";
 
 function RepoForm(props: any) {

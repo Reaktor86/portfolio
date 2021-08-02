@@ -3,7 +3,7 @@ import style from './repoList.module.css';
 import moment from "moment";
 import 'moment/locale/ru';
 import RepoPopup from "../RepoPopup/RepoPopup";
-import {IRepo, IRepoListProps} from "../../../pages/github_repo/types";
+import {IRepo, IRepoListProps} from "../../types";
 
 const initialRepo = {
     name: '',

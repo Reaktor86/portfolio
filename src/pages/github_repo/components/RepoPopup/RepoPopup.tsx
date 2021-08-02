@@ -1,5 +1,5 @@
 import React from "react";
-import Modal from "../HOC/Modal";
+import Modal from "../../../../hoc/Modal";
 import style from '../RepoList/repoList.module.css'
 
 function RepoPopup(props: any) {

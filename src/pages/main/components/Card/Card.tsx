@@ -9,7 +9,7 @@ function Card(props: any) {
             <p>{props.desc}</p>
             <p><b>Демонстрирует технологии:</b></p>
             <p>{props.tech}</p>
-            <Link to='/github-repo'>
+            <Link to={props.link}>
                 <button className={style.card__btn}>старт</button>
             </Link>
         </div>

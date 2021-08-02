@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import './GithubRepo.css';
-import RepoForm from "../../components/github_repo/RepoForm/RepoForm";
-import githubBig from '../../img/github_repo/github_big.png';
-import githubSmall from '../../img/github_repo/github_small.jpg';
+import './GithubRepo.scss';
+import RepoForm from "./components/RepoForm/RepoForm";
+import githubBig from './img/github_big.png';
+import githubSmall from './img/github_small.jpg';
 
-class App extends Component {
+class GithubRepo extends Component {
 
     render() {
 
@@ -22,7 +22,7 @@ class App extends Component {
         console.log(_.size(ar));
 
         return (
-            <div className="App" data-cy='main'>
+            <div className="GithubRepo" data-cy='main'>
                 <h1>Скачать репозиторий Github</h1>
                 <RepoForm>
                     <div className='mediaTags'>
@@ -45,4 +45,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default GithubRepo;
