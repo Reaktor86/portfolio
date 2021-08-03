@@ -1,0 +1,39 @@
+.QuizQuestion {
+  .head {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  > button {
+    background: #ecf9ff;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    margin-bottom: 15px;
+    transition: .2s;
+    outline: none;
+    color: #4b4b4b;
+    font-size: 15px;
+    text-align: left;
+  }
+
+  > button:hover {
+    border: 2px solid #bbe0ff;
+  }
+
+  .selected {
+    background: #bbe0ff;
+  }
+
+  .wrong {
+    background: #ff6363;
+    border: 2px solid #ff0000;
+  }
+
+  .right {
+    background: #a9ff63;
+    border: 2px solid #72ff00;
+  }
+}

@@ -10,11 +10,12 @@ import rootReducer from "./pages/the-impulse/redux/rootReducer";
 import {Provider} from "react-redux";
 import reduxThunk from 'redux-thunk';
 
-// pages
+// components
 import Main from './pages/main/Main';
 import GithubRepo from "./pages/github_repo/GithubRepo";
 import TheImpulse from "./pages/the-impulse/App";
 import NavBar from "./hoc/NavBar/NavBar";
+import Quiz from "./pages/quiz/Quiz";
 
 const composeEnhancers =
     typeof window === 'object' &&
@@ -41,6 +42,7 @@ ReactDOM.render(
                       <Provider store={theImpulseStore}>
                           <Route path='/the-impulse' component={TheImpulse}/>
                       </Provider>
+                      <Route path='/quiz' component={Quiz}/>
                   </NavBar>
               </Switch>
           </BrowserRouter>

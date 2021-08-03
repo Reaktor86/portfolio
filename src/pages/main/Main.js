@@ -10,18 +10,24 @@ class Main extends Component {
         super(props);
         this.state = {
             cards: [
-            {
-                name: 'Github Repo',
-                desc: 'Приложение для загрузки репозиториев пользователей с Github.',
-                tech: 'React, Render-props, hoc, MomentJS, Axios',
-                link: '/github-repo',
-            },
-            {
-                name: 'The Impulse Demo',
-                desc: 'Небольшая браузерная логическая игра, в которой нужно перемещаться между квадратами в соответствии с цветовыми схемами.',
-                tech: 'React, Redux, Middleware, Redux Thunk, TypeScript',
-                link: '/the-impulse'
-            }
+                {
+                    name: 'Github Repo',
+                    desc: 'Приложение для загрузки репозиториев пользователей с Github.',
+                    tech: 'React, Render-props, hoc, MomentJS, Axios, createPortal',
+                    link: '/github-repo',
+                },
+                {
+                    name: 'The Impulse Demo',
+                    desc: 'Небольшая браузерная логическая игра, в которой нужно перемещаться между квадратами в соответствии с цветовыми схемами.',
+                    tech: 'React, Redux, Middleware, Redux Thunk, TypeScript',
+                    link: '/the-impulse'
+                },
+                {
+                    name: 'Quiz (не готово)',
+                    desc: 'Игра "Кто хочет стать миллионером". 10 вопросов с таймером. Таблица рекордов.',
+                    tech: 'React, Styled-components, createPortal, async',
+                    link: '/quiz'
+                }
         ]}
     }
 

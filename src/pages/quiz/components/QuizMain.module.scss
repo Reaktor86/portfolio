@@ -1,0 +1,12 @@
+.QuizMain {
+  input {
+    display: block;
+  }
+  input[type=number] {
+    width: 70px;
+  }
+  select {
+    display: block;
+    width: 70px;
+  }
+}

@@ -1,0 +1,53 @@
+.Quiz {
+  background: #bae19f;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 20px;
+
+  p {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Josefin Sans', serif;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  button[class=quizBtn] {
+    outline: none;
+    background: #ffb700;
+    padding: 5px 30px;
+    margin-top: 25px;
+    border: 2px solid #ff8001;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 2px 2px 3px 0 rgba(255, 116, 2, 0.3);
+    transition: .2s;
+  }
+
+  button[class=quizBtn]:hover {
+    background: #ff8001;
+  }
+
+  .cont {
+    width: 80%;
+    min-width: 600px;
+    padding: 20px 35px;
+    margin: 0 auto;
+    border-radius: 6px;
+    background: #fff;
+    border: 2px solid #408b40;
+  }
+
+}
