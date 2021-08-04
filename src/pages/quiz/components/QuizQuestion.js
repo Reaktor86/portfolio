@@ -1,137 +1,154 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import style from './QuizQuestion.module.scss';
-
-const quizList = [
-    {
-        question: 'Что такое React?',
-        answers: {
-            A: 'Фреймворк',
-            B: 'Библиотека',
-            C: 'База данных',
-            D: 'Облачко'
-        },
-        right: 'B',
-    },
-    {
-        question: 'Выберите из списка то, что не относится к методологиям разработки.',
-        answers: {
-            A: 'Angular',
-            B: 'V-Model',
-            C: 'Kanban',
-            D: 'Waterfall'
-        },
-        right: 'A',
-    },
-    {
-        question: 'Поговорим о Flexbox. Что делает justify-content?',
-        answers: {
-            A: 'Выравнивает контент по центральной оси',
-            B: 'Выравнивает контент по поперечной оси',
-            C: 'Выравнивает контент по главной оси',
-            D: 'Регулирует фактор сжимаемости отдельного элдемента'
-        },
-        right: 'C',
-    },
-    {
-        question: 'Почему программист не пришёл на работу?',
-        answers: {
-            A: 'Он тут не работает',
-            B: 'Перепутал воскресенье и понедельник',
-            C: 'Жена рожает',
-            D: 'Перешёл на удалёнку'
-        },
-        right: 'D',
-    },
-    {
-        question: 'Что способствовало поражению ливонских рыцарей во время Ледового побоища?',
-        answers: {
-            A: 'Началась пурга',
-            B: 'Провалился лед',
-            C: 'Затупились коньки',
-            D: 'Пропустили шайбу'
-        },
-        right: 'B',
-    },
-    {
-        question: 'Закончите фразу из «Карнавальная ночь»: «Есть ли жизнь на Марсе, нет ли жизни на Марсе — это…»?',
-        answers: {
-            A: 'Науке неизвестно',
-            B: 'Галилей не понял',
-            C: 'Армстронг не сказал',
-            D: 'Учёные не признаются'
-        },
-        right: 'A',
-    },
-    {
-        question: 'В какой стране под Новый год из окна выбрасывают старые вещи?',
-        answers: {
-            A: 'Германия',
-            B: 'Испания',
-            C: 'Греция',
-            D: 'Италия'
-        },
-        right: 'D',
-    },
-    {
-        question: 'Что нельзя увеличить, а только уменьшить?',
-        answers: {
-            A: 'Масштаб страницы браузера',
-            B: 'Картинку в Фотошопе',
-            C: 'Звёзды через телескоп',
-            D: 'Твою зарплату'
-        },
-        right: 'D',
-    },
-    {
-        question: 'Какого цвета фон у этого приложения?',
-        answers: {
-            A: 'Синий',
-            B: 'Жёлтый',
-            C: 'Зелёный',
-            D: 'Красный'
-        },
-        right: 'C',
-    },
-    {
-        question: 'Что не является методом массива в JavaScript?',
-        answers: {
-            A: 'fill()',
-            B: 'redux()',
-            C: 'join()',
-            D: 'reduce()'
-        },
-        right: 'B',
-    },
-]
+import {quizList} from "../QuizList";
+import QuizButton from "../hoc/QuizButton";
+let _ = require('lodash');
 
 function QuizQuestion(props) {
 
     const [current, setCurrent] = useState(0);
     const [disable, setDisable] = useState(false);
+    const [questionArray, setQuestionArray] = useState([0]);
+    const [resultText, setResultText] = useState('');
 
-    function answered(e) {
-        console.log(e);
+    useEffect(() => {
+        const rand = _.range(0, props.totalQuestions);
+        setQuestionArray(_.shuffle(rand));
+    }, [])
+
+    function handleAnswer(isCorrect) {
         setDisable(true);
+        if (isCorrect) {
+            props.raiseScore(10);
+            setResultText('правильно');
+        } else {
+            setResultText('неправильно');
+        }
+    }
+
+    function handleNext() {
+        if (current >= props.totalQuestions - 1) {
+            console.log('вопросы кончились');
+            props.setGameState('over');
+            return;
+        }
+        setCurrent(prev => prev + 1);
+        setDisable(false);
     }
 
     return (
         <div className={style.QuizQuestion}>
+            <p className={style.score}>Очки: {props.score}</p>
             <p className={style.head}>Вопрос {current + 1}</p>
-            <p>{quizList[current].question}</p>
-            <button onClick={answered} disabled={disable}>
-                A: {quizList[current].answers.A}
-            </button>
-            <button onClick={answered} disabled={disable}>
-                B: {quizList[current].answers.B}
-            </button>
-            <button onClick={answered} disabled={disable}>
-                C: {quizList[current].answers.C}
-            </button>
-            <button onClick={answered} disabled={disable}>
-                D: {quizList[current].answers.D}
-            </button>
+            <p className={style.body}>{quizList[questionArray[current]].question}</p>
+            <div className={style.answers}>
+                {
+                    quizList[questionArray[current]].answers.map((item, index) => {
+                        return <Answer
+                            key={index}
+                            disable={disable}
+                            index={index}
+                            item={item}
+                            handleAnswer={handleAnswer}
+                        />
+                    })
+                }
+                {
+                    disable ?
+                        <div className={style.lock}/>
+                        : null
+                }
+            </div>
+            <div className={style.resultText}>
+                {
+                    disable ?
+                        <p>{resultText}</p>
+                        : null
+                }
+            </div>
+            <div className={style.next}>
+
+                {
+                    disable ?
+                        <>
+                        <QuizButton>
+                            <button
+                                className={style.quizBtn__red}
+                                onClick={() => props.setGameState('menu')}
+                            >В меню
+                            </button>
+                        </QuizButton>
+                        <QuizButton>
+                            <button
+                                onClick={handleNext}
+                            >Дальше
+                            </button>
+                        </QuizButton>
+                        </>
+                    : null
+                }
+            </div>
         </div>
     )
 }
 
 export default QuizQuestion;
+
+function Answer({ disable, index, item, handleAnswer }) {
+
+    const [styleBtn, setStyleBtn] = useState([style.answerBtn]);
+
+
+    const handleStyle = () => {
+        if (item.isCorrect) {
+            setStyleBtn(prev => {
+                let newStyle = [...prev];
+                newStyle.push(style.correct);
+                return newStyle;
+            });
+        } else {
+            setStyleBtn(prev => {
+                let newStyle = [...prev];
+                newStyle.push(style.wrong);
+                return newStyle;
+            });
+        }
+    }
+
+    useEffect(() => {
+        if (!disable) {
+            setStyleBtn([style.answerBtn]);
+        }
+    }, [disable])
+
+    let letter;
+    switch (index) {
+        case 0:
+            letter = 'A';
+            break;
+        case 1:
+            letter = 'B';
+            break;
+        case 2:
+            letter = 'C';
+            break;
+        case 3:
+            letter = 'D';
+            break;
+        default:
+            letter = 'A';
+    }
+
+    return (
+        <button
+            className={styleBtn.join(' ')}
+            disabled={disable}
+            onClick={() => {
+                handleAnswer(item.isCorrect);
+                handleStyle();
+            }}
+        >
+            {letter}: {item.answerText}
+        </button>
+    )
+}

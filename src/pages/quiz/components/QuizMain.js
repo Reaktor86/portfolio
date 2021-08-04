@@ -1,25 +1,60 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import style from './QuizMain.module.scss';
+import QuizButton from "../hoc/QuizButton";
+import QuizStat from "./QuizStat";
 
 function QuizMain(props) {
 
     const [name, setName] = useState('Игрок 1');
     const [count, setCount] = useState(5);
     const [time, setTime] = useState('step3');
+    const [scoreCountBonus, setScoreCountBonus] = useState(0);
+    const [scoreTimeBonus, setScoreTimeBonus] = useState(0);
 
     const handleName = (e) => {
         setName(e.target.value);
     }
 
     const handleCount = (e) => {
-        if (e.target.value < 5 || e.target.value > 10) {
+        const count = +e.target.value;
+        if (count < 5 || count > 10) {
             return;
         }
-        setCount(e.target.value);
+        setCount(count);
+
+        switch(count) {
+            case 10:
+                setScoreCountBonus(5);
+                break;
+            case 9:
+                setScoreCountBonus(4);
+                break;
+            case 8:
+                setScoreCountBonus(3);
+                break;
+            case 7:
+                setScoreCountBonus(2);
+                break;
+            case 6:
+                setScoreCountBonus(1);
+                break;
+            default:
+                setScoreCountBonus(0);
+        }
     }
 
     const handleTime = (e) => {
         setTime(e.target.value);
+        switch(e.target.value) {
+            case 'step1':
+                setScoreTimeBonus(5);
+                break;
+            case 'step2':
+                setScoreTimeBonus(2);
+                break;
+            default:
+                setScoreTimeBonus(0);
+        }
     }
 
     const handleForm = (e) => {
@@ -33,8 +68,12 @@ function QuizMain(props) {
             val = 10;
         }
         props.updateTimerInitial(val);
-        props.switchGameProcessing();
+        props.setGameState('playing');
     }
+
+    useEffect(() => {
+        props.setScoreStep(scoreCountBonus + scoreTimeBonus);
+    }, [scoreCountBonus, scoreTimeBonus])
 
     return (
         <div className={style.QuizMain}>
@@ -49,8 +88,15 @@ function QuizMain(props) {
                     <option value='step2'>10 с.</option>
                     <option value='step3'>15 с.</option>
                 </select>
-                <button className='quizBtn'>Начать</button>
+                <p className={style.scoreStep}>Очков за правильный ответ: <span>{props.scoreStep}</span></p>
+                <QuizButton>
+                    <button>Начать</button>
+                </QuizButton>
             </form>
+            {/*показывается в начале игры*/}
+            <QuizStat
+                recordTable={props.recordTable}
+            />
         </div>
     )
 }

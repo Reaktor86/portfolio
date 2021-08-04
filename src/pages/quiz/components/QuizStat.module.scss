@@ -1,0 +1,33 @@
+.QuizStat {
+
+  table td, table th {
+    padding: 3px 7px;
+    text-align: left;
+    font-size: .8em;
+  }
+
+  table thead {
+    background: #ffb700;
+  }
+
+  table tbody {
+    background: #ffedbf;
+  }
+
+  table thead tr th:nth-child(2) {
+    min-width: 120px;
+  }
+
+  .menu {
+    width: 50%;
+  }
+
+  .over {
+    width: 100%;
+  }
+
+  .empty {
+    text-align: center;
+    color: grey;
+  }
+}

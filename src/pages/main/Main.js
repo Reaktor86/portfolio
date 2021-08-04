@@ -24,8 +24,8 @@ class Main extends Component {
                 },
                 {
                     name: 'Quiz (не готово)',
-                    desc: 'Игра "Кто хочет стать миллионером". 10 вопросов с таймером. Таблица рекордов.',
-                    tech: 'React, Styled-components, createPortal, async',
+                    desc: 'Игра "Викторина". 10 вопросов с таймером. Таблица рекордов.',
+                    tech: 'React, Lodash',
                     link: '/quiz'
                 }
         ]}

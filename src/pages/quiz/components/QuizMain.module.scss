@@ -1,4 +1,7 @@
 .QuizMain {
+  display: flex;
+  justify-content: space-between;
+
   input {
     display: block;
   }
@@ -8,5 +11,14 @@
   select {
     display: block;
     width: 70px;
+  }
+
+  .scoreStep {
+    margin: 20px 0 30px 0;
+
+    span {
+      color: grey;
+      font-weight: bold;
+    }
   }
 }
