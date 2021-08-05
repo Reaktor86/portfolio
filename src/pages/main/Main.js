@@ -23,9 +23,9 @@ class Main extends Component {
                     link: '/the-impulse'
                 },
                 {
-                    name: 'Quiz (не готово)',
+                    name: 'Quiz',
                     desc: 'Игра "Викторина". 10 вопросов с таймером. Таблица рекордов.',
-                    tech: 'React, Lodash',
+                    tech: 'React, Lodash, createPortal',
                     link: '/quiz'
                 }
         ]}

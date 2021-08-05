@@ -1,0 +1,25 @@
+.modal__cont {
+  height: 26%;
+  background: #fff;
+  border: 2px solid green;
+  padding: 45px 115px;
+
+  .modal__btns {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .quizBtn__red {
+    background: #ff6363;
+    border: 2px solid #db0909;
+  }
+
+  .quizBtn__red:hover {
+    background: #db0909;
+  }
+
+  p {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}

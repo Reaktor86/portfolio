@@ -1,12 +1,12 @@
 import React from "react";
-import Modal from "../../../../hoc/Modal";
+import Modal from "../../../../hoc/Modal/Modal";
 import style from '../RepoList/repoList.module.css'
 
 function RepoPopup(props: any) {
 
     return (
         <Modal>
-            <div className={style.modal__bg}>
+            <div className='modal__bg'>
                 <div className={style.modal__cont}>
                     <table className={style.modal__table}>
                         <tbody>

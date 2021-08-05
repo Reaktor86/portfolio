@@ -21,26 +21,7 @@ function QuizMain(props) {
             return;
         }
         setCount(count);
-
-        switch(count) {
-            case 10:
-                setScoreCountBonus(5);
-                break;
-            case 9:
-                setScoreCountBonus(4);
-                break;
-            case 8:
-                setScoreCountBonus(3);
-                break;
-            case 7:
-                setScoreCountBonus(2);
-                break;
-            case 6:
-                setScoreCountBonus(1);
-                break;
-            default:
-                setScoreCountBonus(0);
-        }
+        setScoreCountBonus(count - 5);
     }
 
     const handleTime = (e) => {
@@ -79,7 +60,7 @@ function QuizMain(props) {
         <div className={style.QuizMain}>
             <form onSubmit={handleForm}>
                 <p>Имя:</p>
-                <input type='text' value={name} placeholder='введите имя' onChange={handleName}/>
+                <input type='text' value={name} placeholder='введите имя' onChange={handleName} required/>
                 <p>Количество вопросов (5-10):</p>
                 <input type='number' value={count} onChange={handleCount}/>
                 <p>Время на ответ:</p>

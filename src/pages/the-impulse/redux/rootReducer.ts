@@ -10,8 +10,8 @@ import {
 
 import {IRootState, TypeResult} from "../types";
 
-import {posXDefault} from '../App';
-import {posYDefault} from '../App';
+import {posXDefault} from '../TheImpulse';
+import {posYDefault} from '../TheImpulse';
 
 const initialState: IRootState = {
 

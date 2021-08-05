@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import style from './App.module.scss';
+import style from './TheImpulse.module.scss';
 import Stat from "./components/Stat/Stat";
 import Cell from "./components/Cell/Cell";
 import Arrow from "./components/Arrow/Arrow";

@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import style from './Cell.module.scss';
 import {useSelector} from "react-redux";
 import {ICellMovingProps, IRootState} from "../../types";
-import {cellTransition} from "../../App";
+import {cellTransition} from "../../TheImpulse";
 
 const CellMoving: React.FC<ICellMovingProps> = props => {
 

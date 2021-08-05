@@ -1,6 +1,6 @@
 import {TypeSetNumber, TypeSetBoolean, ISwitchRule, TypeCords, TypeResult, IShowResult, IGameReset} from "../types";
 
-import {cellTransition} from '../App';
+import {cellTransition} from '../TheImpulse';
 
 export const SET_ARROW_ROTATE_INDEX = 'SET_ARROW_ROTATE_INDEX';
 export const SET_ARROW_POS = 'SET_ARROW_POS';

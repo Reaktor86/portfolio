@@ -4,7 +4,7 @@ import QuizQuestion from "./components/QuizQuestion";
 import QuizMain from "./components/QuizMain";
 import QuizStat from "./components/QuizStat";
 import QuizButton from "./hoc/QuizButton";
-let _ = require('lodash');
+const _ = require('lodash');
 
 class Quiz extends Component {
 
@@ -64,9 +64,9 @@ class Quiz extends Component {
         localStorage.setItem('quiz', JSON.stringify(tableCopy));
     }
 
-    raiseScore(val) {
+    raiseScore() {
         this.setState({
-            score: this.state.score + val
+            score: this.state.score + this.state.scoreStep
         })
     }
 
@@ -127,11 +127,7 @@ class Quiz extends Component {
 export default Quiz;
 
 /* TODO:
-- очки за правильный ответ - изменения score
-- модальное окно: вы уверены, что хотите прервать викторину?
-- эксперименты с контекстом, чтобы убрать грязь в коде (обязательно резервная копия!!!)
-- лодаш - убрать бинды
 - анимация (обязательно резервная копия!!!)
-- почистить консоль от ошибок
 - изучить и внедрить styled-components (обязательно резервная копия!!!)
+- ts (обязательно резервная копия!!!)
 */

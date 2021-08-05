@@ -60,15 +60,27 @@
     margin: 0;
   }
 
-  .resultText p {
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 1em;
-  }
-
   .resultText {
     height: 1em;
     margin: 15px 0 0 0;
+
+    p {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 1em;
+    }
+
+    .red {
+      color: red;
+    }
+
+    .green {
+      color: green;
+    }
+
+    span {
+      font-weight: bold;
+    }
   }
 
   .answers {

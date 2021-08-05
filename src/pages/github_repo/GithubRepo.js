@@ -8,7 +8,7 @@ class GithubRepo extends Component {
 
     render() {
 
-        let _ = require('lodash');
+        const _ = require('lodash');
         console.log(_.isEqual(1, 2));
         let ar = [1,2,3,56,73,90,42];
         console.log(_.dropRight(ar, 2))

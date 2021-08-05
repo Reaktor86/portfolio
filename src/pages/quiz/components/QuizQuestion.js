@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react';
 import style from './QuizQuestion.module.scss';
 import {quizList} from "../QuizList";
 import QuizButton from "../hoc/QuizButton";
-let _ = require('lodash');
+import QuizModal from "./QuizModal";
+const _ = require('lodash');
 
 function QuizQuestion(props) {
 
@@ -10,16 +11,45 @@ function QuizQuestion(props) {
     const [disable, setDisable] = useState(false);
     const [questionArray, setQuestionArray] = useState([0]);
     const [resultText, setResultText] = useState('');
+    const [showModal, setShowModal] = useState(false);
+    const [timer, setTimer] = useState(15);
+    const [timerId, setTimerId] = useState();
 
     useEffect(() => {
+
+        // перемешиваем вопросы
         const rand = _.range(0, props.totalQuestions);
         setQuestionArray(_.shuffle(rand));
+
+        // таймер
+        return () => clearInterval(timerId);
+
     }, [])
+
+    useEffect(() => {
+        if (!disable) {
+            setTimer(props.timerInitial);
+            const timerId = setInterval(() => {setTimer(prev => prev - 1)}, 1000);
+            setTimerId(timerId);
+        } else {
+            clearInterval(timerId);
+        }
+    }, [disable])
+
+    useEffect(() => {
+        if (timer === 0) {
+            clearInterval(timerId);
+            setTimeout(() => {
+                setResultText('не успели!');
+                setDisable(true);
+            }, 1000)
+        }
+    }, [timer])
 
     function handleAnswer(isCorrect) {
         setDisable(true);
         if (isCorrect) {
-            props.raiseScore(10);
+            props.raiseScore();
             setResultText('правильно');
         } else {
             setResultText('неправильно');
@@ -28,7 +58,6 @@ function QuizQuestion(props) {
 
     function handleNext() {
         if (current >= props.totalQuestions - 1) {
-            console.log('вопросы кончились');
             props.setGameState('over');
             return;
         }
@@ -63,7 +92,7 @@ function QuizQuestion(props) {
                 {
                     disable ?
                         <p>{resultText}</p>
-                        : null
+                        : <p>таймер: <span className={timer < 5 ? style.red : style.green}>{timer}</span></p>
                 }
             </div>
             <div className={style.next}>
@@ -74,7 +103,7 @@ function QuizQuestion(props) {
                         <QuizButton>
                             <button
                                 className={style.quizBtn__red}
-                                onClick={() => props.setGameState('menu')}
+                                onClick={() => setShowModal(true)}
                             >В меню
                             </button>
                         </QuizButton>
@@ -88,6 +117,14 @@ function QuizQuestion(props) {
                     : null
                 }
             </div>
+            {
+                showModal ?
+                    <QuizModal
+                        setGameState={props.setGameState}
+                        setShowModal={() => setShowModal(false)}
+                    />
+                    : null
+            }
         </div>
     )
 }
