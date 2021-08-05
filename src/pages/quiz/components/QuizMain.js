@@ -10,6 +10,7 @@ function QuizMain(props) {
     const [time, setTime] = useState('step3');
     const [scoreCountBonus, setScoreCountBonus] = useState(0);
     const [scoreTimeBonus, setScoreTimeBonus] = useState(0);
+    const [animChange, setAnimChange] = useState(false);
 
     const handleName = (e) => {
         setName(e.target.value);
@@ -54,6 +55,10 @@ function QuizMain(props) {
 
     useEffect(() => {
         props.setScoreStep(scoreCountBonus + scoreTimeBonus);
+        setAnimChange(true);
+        setTimeout(() => {
+            setAnimChange(false);
+        }, 100)
     }, [scoreCountBonus, scoreTimeBonus])
 
     return (
@@ -69,7 +74,9 @@ function QuizMain(props) {
                     <option value='step2'>10 с.</option>
                     <option value='step3'>15 с.</option>
                 </select>
-                <p className={style.scoreStep}>Очков за правильный ответ: <span>{props.scoreStep}</span></p>
+                <p className={style.scoreStep}>Очков за правильный ответ:&nbsp;
+                    <span className={animChange ? style.anim__change : null}>{props.scoreStep}</span>
+                </p>
                 <QuizButton>
                     <button>Начать</button>
                 </QuizButton>

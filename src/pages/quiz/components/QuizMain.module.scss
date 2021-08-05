@@ -19,6 +19,20 @@
     span {
       color: grey;
       font-weight: bold;
+      display: inline-block;
+    }
+  }
+
+  .anim__change {
+    animation: change .1s;
+  }
+
+  @keyframes change {
+    from {
+      transform: scale(1.2);
+    }
+    to {
+      transform: scale(1);
     }
   }
 }

@@ -83,9 +83,7 @@ function QuizQuestion(props) {
                     })
                 }
                 {
-                    disable ?
-                        <div className={style.lock}/>
-                        : null
+                    disable && <div className={style.lock}/>
                 }
             </div>
             <div className={style.resultText}>
@@ -98,7 +96,7 @@ function QuizQuestion(props) {
             <div className={style.next}>
 
                 {
-                    disable ?
+                    disable &&
                         <>
                         <QuizButton>
                             <button
@@ -114,16 +112,13 @@ function QuizQuestion(props) {
                             </button>
                         </QuizButton>
                         </>
-                    : null
                 }
             </div>
             {
-                showModal ?
-                    <QuizModal
+                showModal && <QuizModal
                         setGameState={props.setGameState}
                         setShowModal={() => setShowModal(false)}
                     />
-                    : null
             }
         </div>
     )
