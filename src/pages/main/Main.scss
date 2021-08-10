@@ -22,6 +22,11 @@ body {
     color: #9b9bed;
   }
 
+  h3 {
+    font-size: 14px;
+    color: grey;
+  }
+
   header {
     width: 100%;
     height: 50px;
@@ -65,28 +70,42 @@ body {
     width: 65%;
     display: flex;
     margin: 0 auto 35px;
-  }
 
-  .profile__photo {
-    margin-right: 35px;
-    width: 110px;
-    min-width: 110px;
-    height: 150px;
-    overflow: hidden;
-    border-radius: 5px;
-  }
+    &__photo {
+      margin-right: 35px;
+      width: 110px;
+      min-width: 110px;
+      height: 150px;
+      overflow: hidden;
+      border-radius: 5px;
+    }
 
-  .profile__photo img {
-    width: inherit;
-  }
+    &__photo img {
+      width: inherit;
+    }
 
-  .profile table {
-    height: 0;
-  }
+    & table {
+      height: 0;
+    }
 
-  .profile table tr td:nth-child(1) {
-    width: 130px;
-    font-weight: bold;
+    & table tr td:nth-child(1) {
+      width: 130px;
+      font-weight: bold;
+    }
+
+    &__controls {
+      margin: 30px 0;
+      width: 100%;
+      display: flex;
+
+      .profile__sort {
+        margin-right: 30px;
+      }
+
+      .profile__filter input {
+        width: 264px;
+      }
+    }
   }
 
   .works {

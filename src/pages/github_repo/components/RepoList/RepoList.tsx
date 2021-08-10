@@ -1,9 +1,7 @@
 import React, {useState} from "react";
-import style from './repoList.module.css';
 import moment from "moment";
 import 'moment/locale/ru';
-import RepoPopup from "../RepoPopup/RepoPopup";
-import {IRepo, IRepoListProps} from "../../types";
+import {IRepo} from "../../types";
 
 const initialRepo = {
     name: '',

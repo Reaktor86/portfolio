@@ -2,7 +2,8 @@ import React from 'react';
 import style from './Card.module.css';
 import { Link } from "react-router-dom";
 
-function Card(props: any) {
+function Card(props) {
+
     return (
         <div className={style.card}>
             <h2>{props.name}</h2>
