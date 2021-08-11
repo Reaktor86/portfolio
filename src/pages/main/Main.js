@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './Main.scss';
 import enter from './img/enter.png';
 import photo from './img/profile/T24TEY8fPSs.jpg';
 import Card from "./components/Card";
+import LodashMoment from "../github_repo/components/LodashMoment/LodashMoment";
 
 const Main = () => {
 
@@ -25,8 +26,15 @@ const Main = () => {
             id: 3,
             name: 'Quiz',
             desc: 'Игра "Викторина". 10 вопросов с таймером. Таблица рекордов.',
-            tech: 'React, Lodash, createPortal, SCSS',
+            tech: 'React, LodashMoment, createPortal, SCSS',
             link: '/quiz'
+        },
+        {
+            id: 4,
+            name: 'LodashMoment',
+            desc: 'Тренировочная площадка для освоения Lodash и MomentJS',
+            tech: 'Lodash, MomentJS',
+            link: '/lodash-moment'
         }
     ]);
     const [searchQuery, setSearchQuery] = useState('');

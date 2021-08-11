@@ -5,22 +5,7 @@ import githubBig from './img/github_big.png';
 import githubSmall from './img/github_small.jpg';
 
 class GithubRepo extends Component {
-
     render() {
-
-        const _ = require('lodash');
-        console.log(_.isEqual(1, 2));
-        let ar = [1,2,3,56,73,90,42];
-        console.log(_.dropRight(ar, 2))
-        console.log(_.sum(ar));
-        console.log(_.findIndex(ar, function (e){
-            return e === 56;
-        }))
-        console.log(_.filter(ar, function (e){
-            return e > 3;
-        }))
-        console.log(_.size(ar));
-
         return (
             <div className="GithubRepo" data-cy='main'>
                 <h1>Скачать репозиторий Github</h1>

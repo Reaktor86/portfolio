@@ -8,8 +8,6 @@ import RepoPopup from "../RepoPopup/RepoPopup";
 
 function RepoForm(props: any) {
 
-    console.log(props)
-
     const ref = React.createRef<HTMLInputElement>();
     const [repoState, setRepoState] = useState<IRepo[]>([]);
     const [errorMessage, setErrorMessage] = useState<string>('нет репозиториев');
@@ -22,17 +20,27 @@ function RepoForm(props: any) {
         }
 
         const user = ref.current.value.trim();
-
         console.log(user);
+        const instance = axios.create();
 
-        const apiUrl = `https://api.github.com/users/${user}/repos`;
+        instance.interceptors.response.use(function (resp) {
+            // Any status code that lie within the range of 2xx cause this function to trigger
+            // Do something with response data
+            console.log('ответ положительный');
+            return resp;
+        }, function (error) {
+            // Any status codes that falls outside the range of 2xx cause this function to trigger
+            // Do something with response error
+            console.log('ответ отрицательный');
+            return Promise.reject(error);
+        });
 
-        axios.get(apiUrl)
+        instance.get(`https://api.github.com/users/${user}/repos`)
             .then((resp) => {
-                if (resp.data.length === 0) {
+                if (!resp.data) {
                     setErrorMessage('нет репозиториев у данного пользователя');
 
-                    // для проверки введи в инпут имя 'gegeg'
+                    // для проверки введи в инпут имя 'ReaktorTest'
                     return;
                 }
                 setRepoState(resp.data);
