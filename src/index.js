@@ -8,7 +8,8 @@ import GithubRepo from "./pages/github_repo/GithubRepo";
 import NavBar from "./hoc/NavBar/NavBar";
 import Quiz from "./pages/quiz/Quiz";
 import App from "./pages/the-impulse/App";
-import LodashMoment from "./pages/github_repo/components/LodashMoment/LodashMoment";
+import MomentSandbox from "./pages/github_repo/components/Sandbox/MomentSandbox";
+import LodashSandbox from "./pages/github_repo/components/Sandbox/LodashSandbox";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,7 +21,8 @@ ReactDOM.render(
                       <Route path='/github-repo' component={GithubRepo}/>
                       <Route path='/the-impulse' component={App}/>
                       <Route path='/quiz' component={Quiz}/>
-                      <Route path='/lodash-moment' component={LodashMoment}/>
+                      <Route path='/lodash' component={LodashSandbox}/>
+                      <Route path='/moment' component={MomentSandbox}/>
                   </NavBar>
               </Switch>
           </BrowserRouter>

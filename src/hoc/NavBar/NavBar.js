@@ -2,7 +2,7 @@ import React, {useRef, useState} from 'react';
 import style from './NavBar.module.scss';
 import { NavLink } from 'react-router-dom';
 
-function NavBar(props) {
+function NavBar({ children }) {
 
     const barRef = useRef(null);
     const [barIsOpen, setBarIsOpen] = useState(false);
@@ -18,7 +18,7 @@ function NavBar(props) {
         } else {
             if (barRef.current) {
                 barRef.current.style.width = '300px';
-                barRef.current.style.height = '400px';
+                barRef.current.style.height = '500px';
                 barRef.current.style.marginLeft = '0';
             }
         }
@@ -43,6 +43,8 @@ function NavBar(props) {
                                 <NavLink to="/github-repo" activeClassName={style.active}>Github Repo</NavLink>
                                 <NavLink to="/the-impulse" activeClassName={style.active}>The Impulse</NavLink>
                                 <NavLink to="/quiz" activeClassName={style.active}>Quiz</NavLink>
+                                <NavLink to="/lodash" activeClassName={style.active}>Lodash Sandbox</NavLink>
+                                <NavLink to="/moment" activeClassName={style.active}>MomentJS Sandbox</NavLink>
                             </nav>
                         </div>
                         : null
@@ -55,7 +57,7 @@ function NavBar(props) {
             }
 
 
-            {props.children}
+            {children}
         </aside>
     )
 }

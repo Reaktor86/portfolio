@@ -3,7 +3,6 @@ import './Main.scss';
 import enter from './img/enter.png';
 import photo from './img/profile/T24TEY8fPSs.jpg';
 import Card from "./components/Card";
-import LodashMoment from "../github_repo/components/LodashMoment/LodashMoment";
 
 const Main = () => {
 
@@ -26,16 +25,23 @@ const Main = () => {
             id: 3,
             name: 'Quiz',
             desc: 'Игра "Викторина". 10 вопросов с таймером. Таблица рекордов.',
-            tech: 'React, LodashMoment, createPortal, SCSS',
+            tech: 'React, hoc, createPortal, SCSS',
             link: '/quiz'
         },
         {
             id: 4,
-            name: 'LodashMoment',
-            desc: 'Тренировочная площадка для освоения Lodash и MomentJS',
-            tech: 'Lodash, MomentJS',
-            link: '/lodash-moment'
-        }
+            name: 'Lodash Sandbox',
+            desc: 'Эксперименты с Lodash',
+            tech: 'Lodash',
+            link: '/lodash'
+        },
+        {
+            id: 5,
+            name: 'MomentJS Sandbox',
+            desc: 'Эксперименты с MomentJS',
+            tech: 'MomentJS',
+            link: '/moment'
+        },
     ]);
     const [searchQuery, setSearchQuery] = useState('');
 
