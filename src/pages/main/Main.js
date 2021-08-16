@@ -25,7 +25,7 @@ const Main = () => {
             id: 3,
             name: 'Quiz',
             desc: 'Игра "Викторина". 10 вопросов с таймером. Таблица рекордов.',
-            tech: 'React, hoc, createPortal, SCSS',
+            tech: 'React, hoc, createPortal, SCSS, local storage',
             link: '/quiz'
         },
         {

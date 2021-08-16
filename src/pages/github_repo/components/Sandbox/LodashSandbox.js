@@ -13,7 +13,7 @@ const LodashSandbox = () => {
         let ar2 = [1,2,null,56,undefined,90,false, ''];
 
         setLodashList([
-            // числа
+            // числа, строки
             'Сравнение чисел: ' + _.isEqual(1, 2),
             'Суммировать два числа: ' + _.add(6,3),
             'Вычесть два числа: ' + _.subtract(6,3),
@@ -37,6 +37,12 @@ const LodashSandbox = () => {
             }),
             'Длина массива: ' + _.size(ar),
             'Слить в строку: ' + _.join(ar, ' '),
+            'Пересечение массивов: ' + _.join(_.intersection(ar, ar2), ' '),
+            'Исключить пересечение: ' + _.join(_.difference(ar, ar2), ' '),
+            'Объединить с изъятием дубликатов: ' + _.join(_.union(ar, ar2), ' '),
+            'Провести итерацию n раз (аналог цикла for): ' + _.times(6, function (n) {
+                return n;
+            }),
         ]);
 
         // Только в консоли
@@ -58,10 +64,13 @@ const LodashSandbox = () => {
         console.log('Удалить 1 и 2 без мутации: ', _.without(ar2, 1, 2));
         console.log('Удалить 1 и 2 навсегда: ', _.pull(ar2, 1, 2));
         console.log('Реверс: ', _.reverse(ar2));
-        let flatten = [1, [2, [3, [4]], 5]];
+        let flatten = [1, [1, [3, [4]], 5]];
         console.log('Исходный массив flatten: ', flatten);
         console.log('Применение _.flatten: ', _.flatten(flatten));
         console.log('Применение _.flattenDeep: ', _.flattenDeep(flatten));
+        let arFloat = [1.12, 3.2, 5.9, 8.34, 5.1, 5,3];
+        console.log('Исходный массив: ', arFloat);
+        console.log('Группировать с использованием Math.floor: ', _.groupBy(arFloat, Math.floor));
 
         // Не чаще 1 раз в 10 секунд передавать координаты мыши:
         window.onmousemove = _.throttle((e) => {
@@ -90,6 +99,9 @@ const LodashSandbox = () => {
         console.log('Объект с самым большим id: ', _.maxBy(collect, 'id'));
         console.log('Копирование объекта со всеми подуровнями: ', _.cloneDeep(collect));
         console.log('Добавить новый ключ в объект: ', _.assign({test: 5}, collect[0]));
+        let obj = {id: 1, name: 'Oleg', age: 35};
+        console.log('Исходный объект obj: ', obj);
+        console.log('Удалить ключи: ', _.omit(obj, ['name', 'age']));
 
         // разное в Lodash
         _.delay(() => {

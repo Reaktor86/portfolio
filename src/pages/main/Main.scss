@@ -131,6 +131,11 @@ body {
 
     .profile {
       width: 100%;
+      &__controls {
+        .profile__filter input {
+          width: auto;
+        }
+      }
     }
 
     .profile .profile__photo {
