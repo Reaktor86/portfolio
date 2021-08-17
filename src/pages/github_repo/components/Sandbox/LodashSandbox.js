@@ -11,6 +11,7 @@ const LodashSandbox = () => {
         const _ = require('lodash');
         let ar = [1,2,3,56,73,90,42];
         let ar2 = [1,2,null,56,undefined,90,false, ''];
+        let str = 'Я - тестовая строка';
 
         setLodashList([
             // числа, строки
@@ -23,6 +24,8 @@ const LodashSandbox = () => {
             _.uniqueId('уникальный id_'),
             _.uniqueId('уникальный id_'),
             'Повторить один и тот же элемент: ' + _.repeat('снова ', 5),
+            'Исходная строка str: ' + str,
+            'С 4-го индекса начинается слово "тестовая"?: ' + _.startsWith(str, 'тестовая', 4),
 
             // массивы
 
@@ -43,6 +46,7 @@ const LodashSandbox = () => {
             'Провести итерацию n раз (аналог цикла for): ' + _.times(6, function (n) {
                 return n;
             }),
+            'Выбрать случайный элемент массива: ' + _.sample(ar),
         ]);
 
         // Только в консоли
@@ -107,6 +111,20 @@ const LodashSandbox = () => {
         _.delay(() => {
             console.log('Задержка 2 сек');
         }, 2000)
+
+        console.log('Попытаться вызвать функцию: ');
+        let result = _.attempt(function () {
+            return document.querySelect('test');
+        });
+        if (_.isError(result)) {
+            console.log('Поймана ошибка: ', result.name);
+        } else {
+            console.log('Нет ошибки: ', result);
+        }
+
+        return () => {
+            window.onmousemove = null;
+        }
 
     }, [])
 
