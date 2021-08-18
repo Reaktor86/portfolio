@@ -1,31 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ErrorBoundary from "./hoc/ErrorBoundary/ErrorBoundary";
-import Main from './pages/main/Main';
-import GithubRepo from "./pages/github_repo/GithubRepo";
-import NavBar from "./hoc/NavBar/NavBar";
-import Quiz from "./pages/quiz/Quiz";
-import App from "./pages/the-impulse/App";
-import MomentSandbox from "./pages/github_repo/components/Sandbox/MomentSandbox";
-import LodashSandbox from "./pages/github_repo/components/Sandbox/LodashSandbox";
+import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
       <ErrorBoundary>
-          <BrowserRouter>
-              <Switch>
-                  <Route exact path='/' component={Main}/>
-                  <NavBar>
-                      <Route path='/github-repo' component={GithubRepo}/>
-                      <Route path='/the-impulse' component={App}/>
-                      <Route path='/quiz' component={Quiz}/>
-                      <Route path='/lodash' component={LodashSandbox}/>
-                      <Route path='/moment' component={MomentSandbox}/>
-                  </NavBar>
-              </Switch>
-          </BrowserRouter>
+          <App/>
       </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById('root')

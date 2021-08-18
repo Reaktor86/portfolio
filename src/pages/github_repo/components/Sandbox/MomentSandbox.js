@@ -53,6 +53,12 @@ const MomentSandbox = () => {
 
     }, [])
 
+    useEffect(() => {
+        return () => {
+            setMomentList([]);
+        }
+    }, [])
+
     return (
         <Sandbox
             name='Moment'

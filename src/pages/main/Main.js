@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './Main.scss';
 import enter from './img/enter.png';
 import photo from './img/profile/T24TEY8fPSs.jpg';

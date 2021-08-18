@@ -124,6 +124,7 @@ const LodashSandbox = () => {
 
         return () => {
             window.onmousemove = null;
+            setLodashList([]);
         }
 
     }, [])

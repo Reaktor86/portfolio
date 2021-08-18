@@ -56,7 +56,6 @@ function NavBar({ children }) {
                     : null
             }
 
-
             {children}
         </aside>
     )
