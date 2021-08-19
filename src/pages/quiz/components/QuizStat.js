@@ -60,3 +60,10 @@ function QuizStat(props) {
 }
 
 export default QuizStat;
+
+/* TODO: закончил здесь
+
+Перевести компонент на styled
+Quiz.js тоже перевести
+Разобраться с QuizButton - она должна иметь дефолтные цвета и менять цвет через пропсы
+ */

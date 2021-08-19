@@ -1,5 +1,9 @@
-.QuizQuestion {
-  .head {
+import styled from "styled-components";
+
+// используется для компонентов QuizAnswer и QuizQuestion
+
+export const StylesCommon = styled.div`
+    .head {
     font-weight: bold;
     font-size: 18px;
   }
@@ -21,10 +25,10 @@
     color: #4b4b4b;
     font-size: 15px;
     text-align: left;
-  }
 
-  .answerBtn:hover {
-    border: 2px solid #bbe0ff;
+    &:hover {
+      border: 2px solid #bbe0ff;
+    }
   }
 
   .wrong {
@@ -93,4 +97,4 @@
       top: 0;
     }
   }
-}
+`

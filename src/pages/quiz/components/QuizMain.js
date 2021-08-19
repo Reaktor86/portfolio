@@ -1,7 +1,46 @@
 import React, {useEffect, useState} from 'react';
-import style from './QuizMain.module.scss';
 import QuizButton from "../hoc/QuizButton";
 import QuizStat from "./QuizStat";
+import styled, {keyframes} from 'styled-components';
+
+const change = keyframes`
+from {
+      transform: scale(1.2);
+    }
+    to {
+      transform: scale(1);
+    }
+`
+
+const StyledQuizMain = styled.div`
+  display: flex;
+  justify-content: space-between;
+  
+  input {
+    display: block;
+  }
+  input[type=number] {
+    width: 70px;
+  }
+  select {
+    display: block;
+    width: 70px;
+  }
+
+  .scoreStep {
+    margin: 20px 0 30px 0;
+
+    span {
+      color: grey;
+      font-weight: bold;
+      display: inline-block;
+    }
+  }
+
+  .anim__change {
+    animation: ${change} .1s;
+  }
+`
 
 function QuizMain(props) {
 
@@ -62,7 +101,7 @@ function QuizMain(props) {
     }, [scoreCountBonus, scoreTimeBonus])
 
     return (
-        <div className={style.QuizMain}>
+        <StyledQuizMain>
             <form onSubmit={handleForm}>
                 <p>Имя:</p>
                 <input type='text' value={name} placeholder='введите имя' onChange={handleName} required/>
@@ -74,8 +113,8 @@ function QuizMain(props) {
                     <option value='step2'>10 с.</option>
                     <option value='step3'>15 с.</option>
                 </select>
-                <p className={style.scoreStep}>Очков за правильный ответ:&nbsp;
-                    <span className={animChange ? style.anim__change : null}>{props.scoreStep}</span>
+                <p className='scoreStep'>Очков за правильный ответ:&nbsp;
+                    <span className={animChange ? 'anim__change' : null}>{props.scoreStep}</span>
                 </p>
                 <QuizButton>
                     <button>Начать</button>
@@ -85,7 +124,7 @@ function QuizMain(props) {
             <QuizStat
                 recordTable={props.recordTable}
             />
-        </div>
+        </StyledQuizMain>
     )
 }
 

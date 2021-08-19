@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import style from './QuizQuestion.module.scss';
-import {quizList} from "../QuizList";
+import {quizList} from "../quizList";
 import QuizButton from "../hoc/QuizButton";
 import QuizModal from "./QuizModal";
+import QuizAnswer from "./QuizAnswer";
+import {StylesCommon} from './StylesCommon';
+
 const _ = require('lodash');
 
 function QuizQuestion(props) {
@@ -66,14 +68,14 @@ function QuizQuestion(props) {
     }
 
     return (
-        <div className={style.QuizQuestion}>
-            <p className={style.score}>Очки: {props.score}</p>
-            <p className={style.head}>Вопрос {current + 1}</p>
-            <p className={style.body}>{quizList[questionArray[current]].question}</p>
-            <div className={style.answers}>
+        <StylesCommon>
+            <p className='score'>Очки: {props.score}</p>
+            <p className='head'>Вопрос {current + 1}</p>
+            <p className='body'>{quizList[questionArray[current]].question}</p>
+            <div className='answers'>
                 {
                     quizList[questionArray[current]].answers.map((item, index) => {
-                        return <Answer
+                        return <QuizAnswer
                             key={index}
                             disable={disable}
                             index={index}
@@ -83,24 +85,24 @@ function QuizQuestion(props) {
                     })
                 }
                 {
-                    disable && <div className={style.lock}/>
+                    disable && <div className='lock'/>
                 }
             </div>
-            <div className={style.resultText}>
+            <div className='resultText'>
                 {
                     disable ?
                         <p>{resultText}</p>
-                        : <p>таймер: <span className={timer < 5 ? style.red : style.green}>{timer}</span></p>
+                        : <p>таймер: <span className={timer < 5 ? 'red' : 'green'}>{timer}</span></p>
                 }
             </div>
-            <div className={style.next}>
+            <div className='next'>
 
                 {
                     disable &&
                         <>
                         <QuizButton>
                             <button
-                                className={style.quizBtn__red}
+                                className='quizBtn__red'
                                 onClick={() => setShowModal(true)}
                             >В меню
                             </button>
@@ -120,67 +122,8 @@ function QuizQuestion(props) {
                         setShowModal={() => setShowModal(false)}
                     />
             }
-        </div>
+        </StylesCommon>
     )
 }
 
 export default QuizQuestion;
-
-function Answer({ disable, index, item, handleAnswer }) {
-
-    const [styleBtn, setStyleBtn] = useState([style.answerBtn]);
-
-
-    const handleStyle = () => {
-        if (item.isCorrect) {
-            setStyleBtn(prev => {
-                let newStyle = [...prev];
-                newStyle.push(style.correct);
-                return newStyle;
-            });
-        } else {
-            setStyleBtn(prev => {
-                let newStyle = [...prev];
-                newStyle.push(style.wrong);
-                return newStyle;
-            });
-        }
-    }
-
-    useEffect(() => {
-        if (!disable) {
-            setStyleBtn([style.answerBtn]);
-        }
-    }, [disable])
-
-    let letter;
-    switch (index) {
-        case 0:
-            letter = 'A';
-            break;
-        case 1:
-            letter = 'B';
-            break;
-        case 2:
-            letter = 'C';
-            break;
-        case 3:
-            letter = 'D';
-            break;
-        default:
-            letter = 'A';
-    }
-
-    return (
-        <button
-            className={styleBtn.join(' ')}
-            disabled={disable}
-            onClick={() => {
-                handleAnswer(item.isCorrect);
-                handleStyle();
-            }}
-        >
-            {letter}: {item.answerText}
-        </button>
-    )
-}
