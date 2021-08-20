@@ -7,6 +7,8 @@ const LodashSandbox = React.lazy(() => import('./pages/Sandbox/LodashSandbox'));
 const MomentSandbox = React.lazy(() => import('./pages/Sandbox/MomentSandbox'));
 const GithubRepo = React.lazy(() => import('./pages/github_repo/GithubRepo'));
 const AppImpulse = React.lazy(() => import('./pages/the-impulse/App'));
+const AppTodo = React.lazy(() => import('./pages/todo/App'));
+
 
 const App = () => {
 
@@ -35,6 +37,7 @@ const App = () => {
                         </Profiler>
                         <Route path='/lodash' component={LodashSandbox}/>
                         <Route path='/moment' component={MomentSandbox}/>
+                        <Route path='/todo' component={AppTodo}/>
                     </NavBar>
                 </React.Suspense>
             </Switch>

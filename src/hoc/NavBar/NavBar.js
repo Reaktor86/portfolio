@@ -45,6 +45,7 @@ function NavBar({ children }) {
                                 <NavLink to="/quiz" activeClassName={style.active}>Quiz</NavLink>
                                 <NavLink to="/lodash" activeClassName={style.active}>Lodash Sandbox</NavLink>
                                 <NavLink to="/moment" activeClassName={style.active}>MomentJS Sandbox</NavLink>
+                                <NavLink to="/todo" activeClassName={style.active}>Todo</NavLink>
                             </nav>
                         </div>
                         : null

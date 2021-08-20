@@ -42,6 +42,13 @@ const Main = () => {
             tech: 'MomentJS',
             link: '/moment'
         },
+        {
+            id: 6,
+            name: 'Todo',
+            desc: 'Приложение для ведения списка дел. Использует матрицу Эйзенхауэра для эффективного решения задач.',
+            tech: 'React, Storybook, Styled components, local storage, css grid',
+            link: '/moment'
+        },
     ]);
     const [searchQuery, setSearchQuery] = useState('');
 
