@@ -1,5 +1,8 @@
 import React from 'react';
-import style from './App.scss';
+import './App.scss';
+import Select from "./components/UI/Select";
+import Form from "./components/Form";
+
 /*
 Important urgent IU
 Important non-urgent INU
@@ -12,7 +15,9 @@ const App = () => {
         <div className='Todo'>
             <h1>Список дел</h1>
             <div className='grid'>
-                <div className="controls">Управление</div>
+                <div className="controls">
+                    <Form/>
+                </div>
                 <div className="todos_IU">Важные срочные</div>
                 <div className="todos_INU">Важные несрочные</div>
                 <div className="todos_UU">Неважные срочные</div>
