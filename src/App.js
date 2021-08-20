@@ -3,8 +3,8 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import NavBar from "./hoc/NavBar/NavBar";
 import Main from './pages/main/Main';
 const Quiz = React.lazy(() => import('./pages/quiz/Quiz'));
-const LodashSandbox = React.lazy(() => import('./pages/github_repo/components/Sandbox/LodashSandbox'));
-const MomentSandbox = React.lazy(() => import('./pages/github_repo/components/Sandbox/MomentSandbox'));
+const LodashSandbox = React.lazy(() => import('./pages/Sandbox/LodashSandbox'));
+const MomentSandbox = React.lazy(() => import('./pages/Sandbox/MomentSandbox'));
 const GithubRepo = React.lazy(() => import('./pages/github_repo/GithubRepo'));
 const AppImpulse = React.lazy(() => import('./pages/the-impulse/App'));
 

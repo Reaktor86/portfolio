@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import Sandbox from "./Sandbox";
-import _ from "lodash";
 
 const LodashSandbox = () => {
 

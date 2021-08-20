@@ -11,7 +11,7 @@ const Main = () => {
             id: 1,
             name: 'Github Repo',
             desc: 'Приложение для загрузки репозиториев пользователей с Github.',
-            tech: 'React, Render-props, UI, MomentJS, Axios, createPortal, media tags',
+            tech: 'React, Render-props, MomentJS, Axios, createPortal, media tags',
             link: '/github-repo',
         },
         {
@@ -25,7 +25,7 @@ const Main = () => {
             id: 3,
             name: 'Quiz',
             desc: 'Игра "Викторина". 10 вопросов с таймером. Таблица рекордов.',
-            tech: 'React, UI, createPortal, SCSS, local storage',
+            tech: 'React, createPortal, local storage, Styled-components, Lodash',
             link: '/quiz'
         },
         {
