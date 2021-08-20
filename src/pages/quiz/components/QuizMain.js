@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import QuizButton from "../hoc/QuizButton";
+import QuizButton from "../UI/QuizButton";
 import QuizStat from "./QuizStat";
 import styled, {keyframes} from 'styled-components';
 
@@ -116,9 +116,9 @@ function QuizMain(props) {
                 <p className='scoreStep'>Очков за правильный ответ:&nbsp;
                     <span className={animChange ? 'anim__change' : null}>{props.scoreStep}</span>
                 </p>
-                <QuizButton>
-                    <button>Начать</button>
-                </QuizButton>
+                <QuizButton
+                    text='Начать'
+                />
             </form>
             {/*показывается в начале игры*/}
             <QuizStat

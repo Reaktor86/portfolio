@@ -48,15 +48,6 @@ export const StylesCommon = styled.div`
     align-items: center;
   }
 
-  .quizBtn__red {
-    background: #ff6363;
-    border: 2px solid #db0909;
-  }
-
-  .quizBtn__red:hover {
-    background: #db0909;
-  }
-
   .score {
     text-align: right;
     font-size: 13px;

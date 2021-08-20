@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {quizList} from "../quizList";
-import QuizButton from "../hoc/QuizButton";
+import QuizButton from "../UI/QuizButton";
 import QuizModal from "./QuizModal";
 import QuizAnswer from "./QuizAnswer";
 import {StylesCommon} from './StylesCommon';
@@ -100,19 +100,15 @@ function QuizQuestion(props) {
                 {
                     disable &&
                         <>
-                        <QuizButton>
-                            <button
-                                className='quizBtn__red'
-                                onClick={() => setShowModal(true)}
-                            >В меню
-                            </button>
-                        </QuizButton>
-                        <QuizButton>
-                            <button
-                                onClick={handleNext}
-                            >Дальше
-                            </button>
-                        </QuizButton>
+                            <QuizButton
+                                onclick={() => setShowModal(true)}
+                                color='red'
+                                text='В меню'
+                            />
+                            <QuizButton
+                                onclick={handleNext}
+                                text='Дальше'
+                            />
                         </>
                 }
             </div>
