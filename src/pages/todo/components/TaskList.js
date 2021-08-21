@@ -62,7 +62,17 @@ const headers = {
 
 const TaskList = ({ list, type }) => {
 
-    console.log('рендер TaskList', list);
+    const [empty, setEmpty] = useState(true);
+
+    useEffect(() => {
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].priority === type) {
+                setEmpty(false);
+                break;
+            }
+            setEmpty(true);
+        }
+    }, [list, type])
 
     return (
         <StyledTaskList type={type}>
@@ -71,18 +81,17 @@ const TaskList = ({ list, type }) => {
             </div>
             <div className='list'>
                 {
-                    list.map((item) => {
+                    list.map(item => {
                         if (item.priority === type) {
                             return <Task
-                                text={item.text}
-                                priority={item.priority}
                                 key={item.id}
+                                task={item}
                             />
                         }
                     })
                 }
                 {
-                    !list.length && <p className='empty'>пусто</p>
+                    (empty || !list.length) && <p className='empty'>пусто</p>
                 }
             </div>
         </StyledTaskList>
@@ -90,8 +99,3 @@ const TaskList = ({ list, type }) => {
 };
 
 export default TaskList;
-
-/*
-TODO
-сделать состояние контейнера: какой у него тип и в зависимости от типа фильровать данные
- */

@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useState} from 'react';
 import Input from "./UI/Input";
 import Button from "./UI/Button";
 import Select from "./UI/Select";
@@ -14,11 +14,21 @@ const StyledForm = styled.form`
         border: none;
         padding: 0;
     }
+    
+    @media all and (max-width: 600px) {
+    
+        input, select {
+            width: 100%;
+            max-width: none;
+        }
+    
+        fieldset {
+            flex-direction: column;
+        }
+    }
 `
 
 const Form = ({ handleForm }) => {
-
-    console.log('рендер Form');
 
     const [value, setValue] = useState('');
     const [selected, setSelected] = useState('none');
