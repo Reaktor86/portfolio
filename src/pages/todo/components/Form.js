@@ -2,13 +2,19 @@ import React, {useState} from 'react';
 import Input from "./UI/Input";
 import Button from "./UI/Button";
 import Select from "./UI/Select";
+import styled from 'styled-components';
 
-const styleForm = {
-    display: 'flex',
-    gap: '25px',
-    border: 'none',
-    padding: 0,
-}
+const StyledForm = styled.form`
+
+    margin-bottom: 30px;
+
+    fieldset {
+        display: flex;
+        gap: 25px;
+        border: none;
+        padding: 0;
+    }
+`
 
 const Form = () => {
 
@@ -25,9 +31,9 @@ const Form = () => {
 
     return (
         <>
-        <form onSubmit={handleForm} style={{ marginBottom: '30px' }}>
+        <StyledForm onSubmit={handleForm}>
             <p>Задача:</p>
-            <fieldset style={styleForm}>
+            <fieldset>
                 <Input
                     placeholder='Введите задачу'
                     handleInput={(e) => setValue(e.target.value)}
@@ -43,7 +49,7 @@ const Form = () => {
                 selected={selected}
                 handleChange={(e) => setSelected(e.target.value)}
             />
-        </form>
+        </StyledForm>
         </>
     );
 };
@@ -52,7 +58,6 @@ export default Form;
 
 /*
 TODO:
-Сделать строи для формы
 компонент задача
 компонент список задач
 компонент сделанные

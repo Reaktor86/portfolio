@@ -47,7 +47,7 @@ const Main = () => {
             name: 'Todo',
             desc: 'Приложение для ведения списка дел. Использует матрицу Эйзенхауэра для эффективного решения задач.',
             tech: 'React, Storybook, Styled components, local storage, css grid',
-            link: '/moment'
+            link: '/todo'
         },
     ]);
     const [searchQuery, setSearchQuery] = useState('');

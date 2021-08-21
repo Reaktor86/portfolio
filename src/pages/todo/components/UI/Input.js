@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledInput = styled.input`
     width: 100%;
     max-width: 250px;
-    height: 25px;
+    height: 1.8rem;
     outline: none;
     
     &:focus {
