@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import Input from "./UI/Input";
 import Button from "./UI/Button";
 import Select from "./UI/Select";
@@ -16,22 +16,21 @@ const StyledForm = styled.form`
     }
 `
 
-const Form = () => {
+const Form = ({ handleForm }) => {
+
+    console.log('рендер Form');
 
     const [value, setValue] = useState('');
     const [selected, setSelected] = useState('none');
 
-    function handleForm(e) {
-        e.preventDefault();
-        console.log(
-            'value = ' + value + ' selected = ' + selected
-        );
-        setValue('');
-    }
-
     return (
         <>
-        <StyledForm onSubmit={handleForm}>
+        <StyledForm
+            onSubmit={(e) => {
+                handleForm(e, value, selected);
+                setValue('');
+            }}
+        >
             <p>Задача:</p>
             <fieldset>
                 <Input

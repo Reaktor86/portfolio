@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import ErrorBoundary from "./hoc/ErrorBoundary/ErrorBoundary";
 import App from "./App";
-import TestButton from "./stories/TestButton";
-import Task from "./stories/Task";
 
 ReactDOM.render(
   <React.StrictMode>

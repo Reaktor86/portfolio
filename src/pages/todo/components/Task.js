@@ -1,20 +1,21 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import Select from "./UI/Select";
 
 const StyledTask = styled.div`
   display: flex;
-  width: 100%;
   max-width: 500px;
   gap: 15px;
   align-items: start;
   padding: 10px;
   border: 1px solid grey;
   border-radius: 7px;
+  background: white;
 
   p {
-    margin: 0;
+    margin: 2px 0 0 0;
     flex-grow: 1;
+    font-size: 14px;
   }
 
   &:hover {
@@ -22,21 +23,29 @@ const StyledTask = styled.div`
   }
 `
 
-const Task = ({ text, priority, handleCheck, handleEdit, handleMove, handleRemove }) => {
+const Task = ({ text, priority }) => {
+
+    const [selected, setSelected] = useState('none');
+
+    useEffect(() => {
+        setSelected(priority)
+    }, [priority])
+
+    console.log('рендер Task');
+
     return (
         <StyledTask>
             <input
                 type='checkbox'
-                onClick={handleCheck}
             />
-            <p onClick={handleEdit}>{text}</p>
+            <p>{text}</p>
             <Select
                 width='50px'
                 height='1.3rem'
-                selected={priority}
-                handleChange={handleMove}
+                selected={selected}
+                handleChange={(e) => setSelected(e.target.value)}
             />
-            <button onClick={handleRemove}>X</button>
+            <button>X</button>
         </StyledTask>
     );
 };
