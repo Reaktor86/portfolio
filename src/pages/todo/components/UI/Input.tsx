@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {IInputProps} from "../../types";
 
 const StyledInput = styled.input`
     width: 100%;
@@ -12,7 +13,7 @@ const StyledInput = styled.input`
     }
 `
 
-const Input = ({ placeholder, handleInput, value }) => {
+const Input: React.FC<IInputProps> = ({ placeholder, handleInput, value }) => {
 
     return (
         <StyledInput
@@ -25,4 +26,4 @@ const Input = ({ placeholder, handleInput, value }) => {
     );
 };
 
-export default Input;
+export default React.memo(Input);

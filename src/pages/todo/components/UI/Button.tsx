@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import {IButtonProps} from "../../types";
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<{ color: 'red' | undefined}>`
     min-width: 120px;
     height: 1.8rem;
     outline: none;
@@ -15,7 +16,7 @@ const StyledButton = styled.button`
     }
 `
 
-const Button = ({ text, color }) => {
+const Button: React.FC<IButtonProps> = ({ text, color }) => {
     return (
         <StyledButton color={color}>
             { text }
@@ -23,4 +24,4 @@ const Button = ({ text, color }) => {
     );
 };
 
-export default Button;
+export default React.memo(Button);

@@ -188,7 +188,3 @@ class Quiz extends Component {
 
 export default Quiz;
 
-/* TODO:
-- анимация (обязательно резервная копия!!!)
-- ts (обязательно резервная копия!!!)
-*/

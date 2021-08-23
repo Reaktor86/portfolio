@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import {ISelectProps, IStyledSelectProps} from "../../types";
 
-const StyledSelect = styled.select`
+const StyledSelect = styled.select<IStyledSelectProps>`
     width: ${props => props.width ? props.width : '100%'};
     max-width: 250px;
     height: ${props => props.height ? props.height : '1.8rem'};
 `
 
-const Select = ({ selected, handleChange, width, height }) => {
+const Select: React.FC<ISelectProps> = ({ selected, handleChange, width, height }) => {
 
     return (
         <StyledSelect
@@ -27,4 +28,4 @@ const Select = ({ selected, handleChange, width, height }) => {
     );
 };
 
-export default Select;
+export default React.memo(Select);

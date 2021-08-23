@@ -21,7 +21,7 @@ const StyledQuizButton = styled.button`
 }
 `
 
-function QuizButton({text, color, onclick}) {
+const QuizButton = ({text, color, onclick}) => {
     return (
         <StyledQuizButton
             color={color}

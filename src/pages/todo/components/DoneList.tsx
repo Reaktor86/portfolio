@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
+import {IDoneListProps} from "../types";
 
 const StyledDoneList = styled.div`
   margin-bottom: 15px;
@@ -44,7 +45,7 @@ const StyledDoneList = styled.div`
   }
 `
 
-const DoneList = ({ typeText, list, handleClear }) => {
+const DoneList: React.FC<IDoneListProps> = ({ typeText, list, handleClear }) => {
 
     const [hide, setHide] = useState(true);
 

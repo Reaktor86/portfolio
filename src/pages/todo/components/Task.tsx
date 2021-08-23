@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import styled from 'styled-components';
 import Select from "./UI/Select";
 import {TaskContext} from "../App";
+import {ITaskContext, ITaskProps, Priority} from "../types";
 
 const StyledTask = styled.div`
   display: flex;
@@ -35,12 +36,12 @@ const StyledTask = styled.div`
   }
 `
 
-const Task = ({ task }) => {
+const Task: React.FC<ITaskProps> = ({ task }) => {
 
-    const [selected, setSelected] = useState('none');
-    const [editMode, setEditMode] = useState(false);
-    const [temp, setTemp] = useState('');
-    const { addDone, addCancelled, confirmEdit, confirmMove } = useContext(TaskContext);
+    const [selected, setSelected] = useState<Priority>('none');
+    const [editMode, setEditMode] = useState<boolean>(false);
+    const [temp, setTemp] = useState<string>('');
+    const { addDone, addCancelled, confirmEdit, confirmMove } = useContext<ITaskContext>(TaskContext);
 
     useEffect(() => {
         setSelected(task.priority)
@@ -56,7 +57,7 @@ const Task = ({ task }) => {
         setEditMode(false);
     }
 
-    function handleEdit(e) {
+    function handleEdit(e: React.ChangeEvent<HTMLTextAreaElement>) {
         setTemp(e.target.value);
     }
 
@@ -65,9 +66,9 @@ const Task = ({ task }) => {
         setTemp(task.text);
     }
 
-    function handleMove(e) {
-        setSelected(e.target.value);
-        confirmMove(task, e.target.value);
+    function handleMove(e: React.ChangeEvent<HTMLSelectElement>) {
+        setSelected(e.target.value as Priority);
+        confirmMove(task, e.target.value as Priority);
     }
 
     return (
@@ -81,7 +82,6 @@ const Task = ({ task }) => {
                     <div>
                         <textarea
                             onChange={ handleEdit }
-                            maxLength='200'
                             value={ temp }
                         >
                         </textarea>

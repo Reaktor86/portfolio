@@ -3,8 +3,14 @@ import './App.scss';
 import Form from "./components/Form";
 import TaskList from "./components/TaskList";
 import DoneList from "./components/DoneList";
+import {ITask, ITaskContext, Priority} from "./types";
 
-export const TaskContext = React.createContext({})
+export const TaskContext = React.createContext<ITaskContext>({
+    addDone: () => {},
+    addCancelled: () => {},
+    confirmEdit: () => {},
+    confirmMove: () => {},
+})
 
 /*
 Important urgent IU
@@ -13,11 +19,11 @@ Unimportant urgent UU
 Unimportant non-urgent UNU
  */
 
-const App = () => {
+const App: React.FC = () => {
 
-    const [list, setList] = useState([]);
-    const [done, setDone] = useState([]);
-    const [cancelled, setCancelled] = useState([]);
+    const [list, setList] = useState<ITask[]>([]);
+    const [done, setDone] = useState<ITask[]>([]);
+    const [cancelled, setCancelled] = useState<ITask[]>([]);
 
     useEffect(() => {
 
@@ -42,7 +48,7 @@ const App = () => {
         console.log('данные сохранены');
     }, [list, done, cancelled])
 
-    function handleForm(e, value, selected) {
+    function handleForm(e: React.FormEvent<HTMLFormElement>, value: string, selected: Priority) {
 
         e.preventDefault();
         setList([...list, {
@@ -52,19 +58,19 @@ const App = () => {
         }]);
     }
 
-    function addDone(item) {
+    function addDone(item: ITask) {
 
         setList(list.filter(task => task.id !== item.id));
         setDone([...done, item]);
     }
 
-    function addCancelled(item) {
+    function addCancelled(item: ITask) {
 
         setList(list.filter(task => task.id !== item.id));
         setCancelled([...cancelled, item]);
     }
 
-    function confirmEdit(task, newText) {
+    function confirmEdit(task: ITask, newText: string) {
 
         const update = list.map(item => {
             if (item.id === task.id) {
@@ -75,7 +81,7 @@ const App = () => {
         setList(update);
     }
 
-    function confirmMove(task, newPriority) {
+    function confirmMove(task: ITask, newPriority: Priority) {
 
         const update = list.map(item => {
             if (item.id === task.id) {
@@ -86,7 +92,7 @@ const App = () => {
         setList(update);
     }
 
-    function handleClear(listToDelete) {
+    function handleClear(listToDelete: ITask[]) {
 
         if (listToDelete === done) {
             setDone([]);

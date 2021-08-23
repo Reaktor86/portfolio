@@ -1,6 +1,7 @@
 import React, {useRef, useState} from 'react';
 import style from './NavBar.module.scss';
 import { NavLink } from 'react-router-dom';
+import {pagesList} from "../../pagesList";
 
 function NavBar({ children }) {
 
@@ -40,12 +41,15 @@ function NavBar({ children }) {
                             <nav>
                                 <NavLink exact to='/' activeClassName={style.active}>На главную</NavLink>
                                 <hr/>
-                                <NavLink to="/github-repo" activeClassName={style.active}>Github Repo</NavLink>
-                                <NavLink to="/the-impulse" activeClassName={style.active}>The Impulse</NavLink>
-                                <NavLink to="/quiz" activeClassName={style.active}>Quiz</NavLink>
-                                <NavLink to="/lodash" activeClassName={style.active}>Lodash Sandbox</NavLink>
-                                <NavLink to="/moment" activeClassName={style.active}>MomentJS Sandbox</NavLink>
-                                <NavLink to="/todo" activeClassName={style.active}>Todo</NavLink>
+                                {
+                                    pagesList.map(item => <NavLink
+                                        key={item.id}
+                                        to={item.link}
+                                        activeClassName={style.active}
+                                    >
+                                        {item.name}
+                                    </NavLink>)
+                                }
                             </nav>
                         </div>
                         : null

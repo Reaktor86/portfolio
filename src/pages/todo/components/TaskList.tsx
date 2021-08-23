@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import Task from "./Task";
 import styled from 'styled-components';
+import {ITaskListProps, Priority} from "../types";
 
-const StyledTaskList = styled.div`
+const StyledTaskList = styled.div<{type: Priority}>`
   width: 100%;
   height: 100%;
   border-radius: 7px;
@@ -60,9 +61,9 @@ const headers = {
     priority4: 'Неважные несрочные',
 }
 
-const TaskList = ({ list, type }) => {
+const TaskList: React.FC<ITaskListProps> = ({ list, type }) => {
 
-    const [empty, setEmpty] = useState(true);
+    const [empty, setEmpty] = useState<boolean>(true);
 
     useEffect(() => {
         for (let i = 0; i < list.length; i++) {
