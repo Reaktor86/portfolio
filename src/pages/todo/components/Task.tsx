@@ -72,7 +72,7 @@ const Task: React.FC<ITaskProps> = ({ task }) => {
     }
 
     return (
-        <StyledTask>
+        <StyledTask className='Task'>
             <input
                 type='checkbox'
                 onClick={() => addDone(task)}

@@ -1,4 +1,4 @@
-import {sum} from "../../src/pages/github_repo/testJest";
+import {sum} from "../../src/myJest";
 import {mount} from "@cypress/react";
 import GithubRepo from "../../src/pages/github_repo/GithubRepo";
 
