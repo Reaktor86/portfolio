@@ -15,7 +15,7 @@ class GithubRepo extends Component {
                             <source srcSet={githubBig} media='(min-width: 800px)'/>
                             <img src={githubSmall} alt='лого'/>
                         </picture>
-                        <video controls width='350px'>
+                        <video controls width='350px' muted>
                             <source src='/media/Nextcloud.mp4' type="video/mp4"/>
                             Your browser doesn't support HTML5 video tag.
                         </video>

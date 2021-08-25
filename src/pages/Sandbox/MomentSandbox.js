@@ -49,6 +49,8 @@ const MomentSandbox = () => {
             'В Москве: ' + moscow.format('HH:mm:ss'),
             'В Нью-Йорке: ' + newYork.format('HH:mm:ss'),
             'В Лондоне: ' + london.format('HH:mm:ss'),
+            'Универсальный формат UTC +0: ' + moment.utc('2013-02-08 09:00:00Z').format('YYYY:MM:DD HH:ss'),
+            'тест ' + moment.utc(),
         ]);
 
     }, [])
