@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 import NavBar from "./hoc/NavBar/NavBar";
 import Main from './pages/main/Main';
 
@@ -27,6 +27,7 @@ const App = () => {
                     </NavBar>
                 </React.Suspense>
             </Switch>
+            <Redirect to='/' component={Main}/>
         </BrowserRouter>
     );
 };

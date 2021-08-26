@@ -12,6 +12,7 @@ const MomentSandbox = () => {
         let moscow = moment.tz(time, "Europe/Moscow");
         let newYork = moscow.clone().tz("America/New_York");
         let london = moscow.clone().tz("Europe/London");
+        const testDate = moment('2020 Jan 12');
 
         setMomentList([
             'Сейчас (timestamp): ' + time,
@@ -50,7 +51,8 @@ const MomentSandbox = () => {
             'В Нью-Йорке: ' + newYork.format('HH:mm:ss'),
             'В Лондоне: ' + london.format('HH:mm:ss'),
             'Универсальный формат UTC +0: ' + moment.utc('2013-02-08 09:00:00Z').format('YYYY:MM:DD HH:ss'),
-            'тест ' + moment.utc(),
+            'тест ' + moment.unix(1318781876.721),
+            'тест ' + moment.unix(1318781876.721),
         ]);
 
     }, [])
