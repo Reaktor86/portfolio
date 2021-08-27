@@ -50,7 +50,7 @@ const DoneList: React.FC<IDoneListProps> = ({ typeText, list, handleClear }) => 
     const [hide, setHide] = useState(true);
 
     return (
-        <StyledDoneList>
+        <StyledDoneList data-cy='TodoDone'>
             <div onClick={() => setHide(!hide)}>
                 { hide ? <span>&#9658; </span> : <span>&#9660; </span> }
                 <span>{typeText}</span>

@@ -41,6 +41,7 @@ const Form: React.FC<IFormProps> = ({ handleForm }) => {
                 handleForm(e, value, selected as Priority);
                 setValue('');
             }}
+            data-cy='TodoForm'
         >
             <p>Задача:</p>
             <fieldset>

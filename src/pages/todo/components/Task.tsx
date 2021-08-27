@@ -86,7 +86,7 @@ const Task: React.FC<ITaskProps> = ({ task }) => {
                         >
                         </textarea>
                         <button className='cancel' onClick={ handleCancelEdit }>отмена</button>
-                        <button onClick={ handleConfirmEdit }>ОК</button>
+                        <button data-cy='OK' onClick={ handleConfirmEdit }>ОК</button>
                     </div>
                     : <p onClick={ handleOpenEdit }>{task.text}</p>
             }

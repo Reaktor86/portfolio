@@ -27,7 +27,7 @@ function NavBar({ children }) {
     }
 
     return (
-        <aside className={style.NavBar}>
+        <aside className={style.NavBar} data-cy='NavBar'>
             <div className={style.nav__burger} onClick={barHandler}>
                 <div/>
                 <div/>

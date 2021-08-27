@@ -58,3 +58,5 @@ export interface ITaskListProps {
 export interface IFormProps {
     handleForm: (e: React.FormEvent<HTMLFormElement>, value: string, selected: Priority) => void;
 }
+
+

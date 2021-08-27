@@ -76,7 +76,10 @@ const TaskList: React.FC<ITaskListProps> = ({ list, type }) => {
     }, [list, type])
 
     return (
-        <StyledTaskList type={type}>
+        <StyledTaskList
+            type={type}
+            data-cy='TodoList'
+        >
             <div className='heading'>
                 <h2>{ headers[type] ? headers[type] : headers.none }</h2>
             </div>
