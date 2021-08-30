@@ -9,6 +9,7 @@ const MomentSandbox = React.lazy(() => import('./pages/Sandbox/MomentSandbox'));
 const GithubRepo = React.lazy(() => import('./pages/github_repo/GithubRepo'));
 const AppImpulse = React.lazy(() => import('./pages/the-impulse/App'));
 const AppTodo = React.lazy(() => import('./pages/todo/App'));
+const RenderProps = React.lazy(() => import('./pages/render-props/RenderProps'));
 
 const App = () => {
 
@@ -24,6 +25,7 @@ const App = () => {
                         <Route path='/lodash' component={LodashSandbox}/>
                         <Route path='/moment' component={MomentSandbox}/>
                         <Route path='/todo' component={AppTodo}/>
+                        <Route path='/render-props' component={RenderProps}/>
                     </NavBar>
                 </React.Suspense>
             </Switch>

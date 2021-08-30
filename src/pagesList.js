@@ -3,7 +3,7 @@ export const pagesList = [
         id: 1,
         name: 'Github Repo',
         desc: 'Приложение для загрузки репозиториев пользователей с Github.',
-        tech: 'React, Render-props, MomentJS, Axios, createPortal, media tags',
+        tech: 'React, render props, MomentJS, Axios, createPortal, media tags',
         link: '/github-repo',
     },
     {
@@ -40,5 +40,12 @@ export const pagesList = [
         desc: 'Приложение для ведения списка дел. Использует матрицу Эйзенхауэра для эффективного решения задач.',
         tech: 'React, Storybook, Styled components, local storage, css grid, TypeScript',
         link: '/todo',
+    },
+    {
+        id: 7,
+        name: 'Render Props',
+        desc: 'Тренировка render props',
+        tech: 'React, render props',
+        link: '/render-props',
     },
 ]
