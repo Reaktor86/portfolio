@@ -8,7 +8,7 @@ import Task from "../pages/todo/components/Task";
 
 configure({ adapter: new Adapter() });
 
-describe.skip('тестирование Todo', function () {
+describe('тестирование Todo', function () {
 
     describe('Тест Todo: Button', () => {
 
@@ -116,7 +116,6 @@ describe.skip('тестирование Todo', function () {
             const wrapper = component.find('.Task');
             expect(wrapper.length).toBe(1);
         })
-
     })
 });
 
