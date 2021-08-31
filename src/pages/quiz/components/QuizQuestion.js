@@ -3,7 +3,7 @@ import {quizList} from "../quizList";
 import QuizButton from "../UI/QuizButton";
 import QuizModal from "./QuizModal";
 import QuizAnswer from "./QuizAnswer";
-import {StylesCommon} from './StylesCommon';
+import {StylesCommon} from './stylesCommon';
 
 const _ = require('lodash');
 

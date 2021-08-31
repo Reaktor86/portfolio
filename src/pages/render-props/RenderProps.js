@@ -1,12 +1,15 @@
 import React from 'react';
 import DataProvider from "./DataProvider";
+import Posts from "./Posts";
+
+const url = 'https://jsonplaceholder.typicode.com/posts';
 
 const RenderProps = () => {
     return (
         <div style={{ margin: '60px auto', width: '60%'}}>
             <p>работает</p>
-            <DataProvider render={({ count }) => <h1>Render Props! { count } </h1>}>
-
+            <DataProvider url={url}>
+                { (data) => <Posts posts={data}/> }
             </DataProvider>
         </div>
     );

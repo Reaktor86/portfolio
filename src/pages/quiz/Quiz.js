@@ -153,15 +153,15 @@ class Quiz extends Component {
                                 />
                                 : this.state.gameState === 'menu' ?
                                     <QuizMain
-                                    updateName={this.updateName.bind(this)}
-                                    updateTimerInitial={this.updateTimerInitial.bind(this)}
-                                    updateTotalQuestions={this.updateTotalQuestions.bind(this)}
-                                    setGameState={this.setGameState.bind(this)}
-                                    recordTable={this.state.recordTable}
-                                    addRowToRecordTable={(row) => this.addRowToRecordTable(row)}
-                                    scoreStep={this.state.scoreStep}
-                                    setScoreStep={this.setScoreStep.bind(this)}
-                                />
+                                        updateName={this.updateName.bind(this)}
+                                        updateTimerInitial={this.updateTimerInitial.bind(this)}
+                                        updateTotalQuestions={this.updateTotalQuestions.bind(this)}
+                                        setGameState={this.setGameState.bind(this)}
+                                        recordTable={this.state.recordTable}
+                                        addRowToRecordTable={(row) => this.addRowToRecordTable(row)}
+                                        scoreStep={this.state.scoreStep}
+                                        setScoreStep={this.setScoreStep.bind(this)}
+                                    />
                                 : <div className='over'>
                                         {/*показывается в конце игры*/}
                                         <QuizStat

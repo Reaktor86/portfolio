@@ -19,7 +19,7 @@ function NavBar({ children }) {
         } else {
             if (barRef.current) {
                 barRef.current.style.width = '300px';
-                barRef.current.style.height = '500px';
+                barRef.current.style.height = '600px';
                 barRef.current.style.marginLeft = '0';
             }
         }

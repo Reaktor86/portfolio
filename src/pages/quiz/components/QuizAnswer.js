@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {StylesCommon} from './StylesCommon';
+import {StylesCommon} from './stylesCommon';
 
 function QuizAnswer({ disable, index, item, handleAnswer }) {
 

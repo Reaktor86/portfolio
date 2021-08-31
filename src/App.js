@@ -10,9 +10,9 @@ const GithubRepo = React.lazy(() => import('./pages/github_repo/GithubRepo'));
 const AppImpulse = React.lazy(() => import('./pages/the-impulse/App'));
 const AppTodo = React.lazy(() => import('./pages/todo/App'));
 const RenderProps = React.lazy(() => import('./pages/render-props/RenderProps'));
+const Json = React.lazy(() => import('./pages/json-placeholder/App'));
 
 const App = () => {
-
     return (
         <BrowserRouter>
             <Switch>
@@ -20,6 +20,7 @@ const App = () => {
                 <React.Suspense fallback={<p>ЗАГРУЗКА</p>}>
                     <NavBar>
                         <Route path='/github-repo' component={GithubRepo}/>
+                        <Route path='/json-placeholder' component={Json}/>
                         <Route path='/the-impulse' component={AppImpulse}/>
                         <Route path='/quiz' component={Quiz}/>
                         <Route path='/lodash' component={LodashSandbox}/>
