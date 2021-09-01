@@ -10,7 +10,7 @@ export const pagesList = [
         id: 2,
         name: 'JSON Placeholder',
         desc: 'Приложение, которое загружает списки с сайта JSON Placeholder',
-        tech: 'React, Redux, Redux Toolkit, react-transition-group',
+        tech: 'React, Redux, Redux Toolkit, в планах: react-transition-group',
         link: '/json-placeholder',
     },
     {

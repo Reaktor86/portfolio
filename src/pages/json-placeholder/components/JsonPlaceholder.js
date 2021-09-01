@@ -67,7 +67,7 @@ const JsonPlaceholder = () => {
                         />
                         {
                             receivedList.length ?
-                                <Transition in={receivedList.length} timeout={500}>
+                                <Transition in={!!receivedList.length} timeout={500}>
                                     {
                                         state => <Button
                                             text={ 'очистить ' + state}
