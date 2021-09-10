@@ -1,14 +1,27 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './Main.scss';
 import enter from './img/enter.png';
 import photo from './img/profile/T24TEY8fPSs.jpg';
 import Card from "./components/Card";
 import {pagesList} from "../../pagesList";
+import Modal from "../../hoc/Modal/Modal";
+
+const base = [
+    {
+        login: '123',
+        pass: '123'
+    }
+]
 
 const Main = () => {
 
     const [cards, setCards] = useState(pagesList);
     const [searchQuery, setSearchQuery] = useState('');
+    const [showEnterForm, setShowEnterForm] = useState(false);
+    const [login, setLogin] = useState('');
+    const [pass, setPass] = useState('');
+    const [showError, setShowError] = useState(false);
+    const [auth, setAuth] = useState(false);
 
     function handleSelect(val) {
         console.log('ВЫЗОВ сортировки handleSelect');
@@ -20,15 +33,39 @@ const Main = () => {
         );
     }
 
+    function handleEnter(e) {
+        e.preventDefault();
+        if (base.some(item => item.login === login && item.pass === pass)) {
+            setShowError(false);
+            setShowEnterForm(false);
+            setAuth(true);
+            console.log('вошли');
+        } else {
+            setShowError(true);
+        }
+    }
+
+    useEffect(() => {
+        setShowError(false);
+    }, [login, pass])
+
     return (
         <div className='Portfolio'>
             <header>
                 <div className='header__container'>
                     <a className='logo' href='#'>portfolio</a>
-                    <div className='enter'>
-                        <img src={enter} alt='вход'/>
-                        <p>Войти</p>
-                    </div>
+                    {
+                        auth ?
+                            <p>Добро пожаловать, {login}!</p>
+                            :
+                            <div
+                                className='enter'
+                                onClick={() => setShowEnterForm(true)}
+                            >
+                                <img src={enter} alt='вход'/>
+                                <p>Войти</p>
+                            </div>
+                    }
                 </div>
             </header>
 
@@ -101,6 +138,40 @@ const Main = () => {
                     </div>
                 </div>
             </main>
+            {
+                showEnterForm &&
+                <Modal>
+                    <div className='modal__bg'>
+                        <div className='EnterForm'>
+                            <form onSubmit={handleEnter}>
+                                <input
+                                    type='text'
+                                    placeholder='логин'
+                                    value={login}
+                                    onChange={(e) => setLogin(e.target.value)}
+                                />
+                                <input
+                                    type='password'
+                                    placeholder='пароль'
+                                    value={pass}
+                                    onChange={(e) => setPass(e.target.value)}
+                                />
+                                <button
+                                    type='submit'
+                                >Вход</button>
+                                <button
+                                    type='button'
+                                    onClick={() => setShowEnterForm(false)}
+                                >Отмена</button>
+                            </form>
+                            {
+                                showError && <p>неверный логин или пароль</p>
+                            }
+                        </div>
+                    </div>
+                </Modal>
+            }
+
         </div>
     )
 }

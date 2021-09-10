@@ -6,6 +6,21 @@ body {
   box-sizing: border-box;
 }
 
+.EnterForm {
+  width: 300px;
+  height: 250px;
+  padding: 25px;
+  background: white;
+  border: 1px solid black;
+  border-radius: 5px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
 .Portfolio {
 
   font-family: "Source Sans Pro", sans-serif;
