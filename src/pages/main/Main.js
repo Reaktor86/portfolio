@@ -5,6 +5,7 @@ import photo from './img/profile/T24TEY8fPSs.jpg';
 import Card from "./components/Card";
 import {pagesList} from "../../pagesList";
 import Modal from "../../hoc/Modal/Modal";
+import {useForm} from "react-hook-form";
 
 const base = [
     {
@@ -18,10 +19,10 @@ const Main = () => {
     const [cards, setCards] = useState(pagesList);
     const [searchQuery, setSearchQuery] = useState('');
     const [showEnterForm, setShowEnterForm] = useState(false);
-    const [login, setLogin] = useState('');
-    const [pass, setPass] = useState('');
     const [showError, setShowError] = useState(false);
     const [auth, setAuth] = useState(false);
+    const [login, setLogin] = useState('');
+    const { register, handleSubmit } = useForm();
 
     function handleSelect(val) {
         console.log('ВЫЗОВ сортировки handleSelect');
@@ -33,21 +34,17 @@ const Main = () => {
         );
     }
 
-    function handleEnter(e) {
-        e.preventDefault();
-        if (base.some(item => item.login === login && item.pass === pass)) {
+    function onSubmit(data) {
+        if (base.some(item => item.login === data.login && item.pass === data.pass)) {
             setShowError(false);
             setShowEnterForm(false);
             setAuth(true);
+            setLogin(data.login);
             console.log('вошли');
         } else {
             setShowError(true);
         }
     }
-
-    useEffect(() => {
-        setShowError(false);
-    }, [login, pass])
 
     return (
         <div className='Portfolio'>
@@ -143,18 +140,14 @@ const Main = () => {
                 <Modal>
                     <div className='modal__bg'>
                         <div className='EnterForm'>
-                            <form onSubmit={handleEnter}>
+                            <form onSubmit={handleSubmit(onSubmit)}>
                                 <input
-                                    type='text'
                                     placeholder='логин'
-                                    value={login}
-                                    onChange={(e) => setLogin(e.target.value)}
+                                    {...register('login')}
                                 />
                                 <input
-                                    type='password'
                                     placeholder='пароль'
-                                    value={pass}
-                                    onChange={(e) => setPass(e.target.value)}
+                                    {...register('pass')}
                                 />
                                 <button
                                     type='submit'
