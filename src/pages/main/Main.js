@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+﻿import React, {useEffect, useState} from 'react';
 import './Main.scss';
 import enter from './img/enter.png';
 import photo from './img/profile/T24TEY8fPSs.jpg';
@@ -84,11 +84,11 @@ const Main = () => {
                             </tr>
                             <tr>
                                 <td>Компания:</td>
-                                <td>Senla</td>
+                                <td>&lt;здесь могла быть ваша компания&gt;</td>
                             </tr>
                             <tr>
                                 <td>Должность:</td>
-                                <td>Программист</td>
+                                <td>Frontend-разработчик</td>
                             </tr>
                             </tbody>
                         </table>
