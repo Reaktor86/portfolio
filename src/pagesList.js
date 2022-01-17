@@ -8,6 +8,7 @@ const AppImpulse = React.lazy(() => import('./pages/the-impulse/App'));
 const AppTodo = React.lazy(() => import('./pages/todo/App'));
 const RenderProps = React.lazy(() => import('./pages/render-props/RenderProps'));
 const Json = React.lazy(() => import('./pages/json-placeholder/App'));
+const EnglishTraining = React.lazy(() => import('./pages/english/EnglishTraining'));
 
 export const pagesList = [
     {
@@ -73,5 +74,13 @@ export const pagesList = [
         tech: 'React, render props',
         link: '/render-props',
         comp: RenderProps,
+    },
+    {
+        id: 9,
+        name: 'English Training',
+        desc: 'Приложение для тренировки базовых правил английского языка',
+        tech: 'React, TypeScript',
+        link: '/english',
+        comp: EnglishTraining,
     },
 ]

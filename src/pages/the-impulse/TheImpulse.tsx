@@ -363,9 +363,3 @@ function mapDispatchToProps(dispatch: any) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TheImpulse);
-
-/*
-TODO:
-- типизировать компонент app
-- продакшн
- */
