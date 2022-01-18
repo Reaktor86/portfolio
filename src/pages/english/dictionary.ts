@@ -1,24 +1,38 @@
+import { EVerbForms } from "./enums";
 import { IDictionary } from "./types";
 
-export const dictionary: IDictionary = {
+export const replaceTemplate = [
+  // что заменить, чем заменить
+  ["do not", "don't"],
+  ["does not", "doesn't"],
+  ["did not", "didn't"],
+  ["'ll ", " will "],
+  ["'ll not ", " will not "],
+]
+
+export const dictionaryStub: IDictionary = {
   close: {
+    id: 1,
     past: "closed",
     heShe: "closes",
-    rus: "закрыть",
+    wrong: EVerbForms.REGULAR,
   },
   open: {
+    id: 2,
     past: "opened",
     heShe: "opens",
-    rus: "открыть",
-  },
-  love: {
-    past: "loved",
-    heShe: "loves",
-    rus: "любить",
+    wrong: EVerbForms.REGULAR,
   },
   see: {
+    id: 4,
     past: "saw",
     heShe: "sees",
-    rus: "видеть",
+    wrong: EVerbForms.WRONG,
+  },
+  love: {
+    id: 3,
+    past: "loved",
+    heShe: "loves",
+    wrong: EVerbForms.REGULAR,
   },
 }

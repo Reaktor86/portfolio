@@ -8,27 +8,11 @@ const AppImpulse = React.lazy(() => import('./pages/the-impulse/App'));
 const AppTodo = React.lazy(() => import('./pages/todo/App'));
 const RenderProps = React.lazy(() => import('./pages/render-props/RenderProps'));
 const Json = React.lazy(() => import('./pages/json-placeholder/App'));
-const EnglishTraining = React.lazy(() => import('./pages/english/EnglishTraining'));
+const EnglishTraining = React.lazy(() => import('./pages/english/App'));
 
 export const pagesList = [
     {
         id: 1,
-        name: 'Github Repo',
-        desc: 'Приложение для загрузки репозиториев пользователей с Github.',
-        tech: 'React, render props, MomentJS, Axios, createPortal, media tags',
-        link: '/github-repo',
-        comp: GithubRepo,
-    },
-    {
-        id: 2,
-        name: 'JSON Placeholder',
-        desc: 'Приложение, которое загружает списки с сайта JSON Placeholder',
-        tech: 'React, Redux, Redux Toolkit',
-        link: '/json-placeholder',
-        comp: Json,
-    },
-    {
-        id: 3,
         name: 'The Impulse Demo',
         desc: 'Небольшая браузерная логическая игра, в которой нужно перемещаться между квадратами в соответствии с цветовыми схемами.',
         tech: 'React, Redux, Middleware, Redux Thunk, TypeScript, SCSS',
@@ -36,12 +20,28 @@ export const pagesList = [
         comp: AppImpulse,
     },
     {
-        id: 4,
+        id: 2,
         name: 'Quiz',
         desc: 'Игра "Викторина". 10 вопросов с таймером. Таблица рекордов.',
         tech: 'React, createPortal, local storage, Styled-components, Lodash',
         link: '/quiz',
         comp: Quiz,
+    },
+    {
+        id: 3,
+        name: 'Todo',
+        desc: 'Приложение для ведения списка дел. Использует матрицу Эйзенхауэра для эффективного решения задач.',
+        tech: 'React, Storybook, Styled components, local storage, css grid, TypeScript',
+        link: '/todo',
+        comp: AppTodo,
+    },
+    {
+        id: 4,
+        name: 'English Verbs Training',
+        desc: 'Приложение для тренировки использования глаголов в английском языке.',
+        tech: 'React, TypeScript, Lodash, Styled-components',
+        link: '/english',
+        comp: EnglishTraining,
     },
     {
         id: 5,
@@ -61,26 +61,26 @@ export const pagesList = [
     },
     {
         id: 7,
-        name: 'Todo',
-        desc: 'Приложение для ведения списка дел. Использует матрицу Эйзенхауэра для эффективного решения задач.',
-        tech: 'React, Storybook, Styled components, local storage, css grid, TypeScript',
-        link: '/todo',
-        comp: AppTodo,
+        name: 'Github Repo',
+        desc: 'Приложение для загрузки репозиториев пользователей с Github.',
+        tech: 'React, render props, MomentJS, Axios, createPortal, media tags',
+        link: '/github-repo',
+        comp: GithubRepo,
     },
     {
         id: 8,
+        name: 'JSON Placeholder',
+        desc: 'Приложение, которое загружает списки с сайта JSON Placeholder',
+        tech: 'React, Redux, Redux Toolkit',
+        link: '/json-placeholder',
+        comp: Json,
+    },
+    {
+        id: 9,
         name: 'Render Props',
         desc: 'Тренировка render props',
         tech: 'React, render props',
         link: '/render-props',
         comp: RenderProps,
-    },
-    {
-        id: 9,
-        name: 'English Training',
-        desc: 'Приложение для тренировки базовых правил английского языка',
-        tech: 'React, TypeScript',
-        link: '/english',
-        comp: EnglishTraining,
     },
 ]

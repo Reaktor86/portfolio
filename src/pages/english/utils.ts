@@ -1,20 +1,38 @@
-import { dictionary } from "./dictionary";
-import { EPronouns, ESentenceTypes, ESentenceTypesRussian, ETimes, ETimesRussian } from "./enums";
-import { ITemplateResult } from "./types";
+import { replaceTemplate } from "./dictionary";
+import { EPronouns, ESentenceTypes, ESentenceTypesRussian, ETimes, ETimesRussian, EVerbForms } from "./enums";
+import { IDictionary, IDictionaryCommon, IDictionaryEntries, ITemplateResult } from "./types";
 import _ from 'lodash';
+
+/**
+ * Извлекает случайный элемент массива
+ * @param arr 
+ * @returns 
+ */
 
 export const getRandomFromArray = <T>(arr: T[]): T => {
   const num = _.random(0, arr.length - 1);
-  console.log('генерация', { length: arr.length, num });
   return arr[num];
 }
+
+/**
+ * Создает массив из 9 чисел (0-8) и перемешивает их
+ * @returns {number[]}
+ */
 
 export const getSequence = (): number[] => {
   const arr = _.range(9);
   return _.shuffle(arr);
 }
 
-export const getTemplate = (sequence: number, word: string): ITemplateResult => {
+/**
+ * Генерирует объект шаблона ответа
+ * @param dictionary 
+ * @param sequence 
+ * @param word 
+ * @returns {ITemplateResult}
+ */
+
+export const getTemplate = (dictionary: IDictionary, sequence: number, word: string): ITemplateResult => {
   const pronoun = getRandomFromArray(Object.values(EPronouns));
   const wordPast = dictionary[word]?.past || word;
   const wordHeShe = dictionary[word]?.heShe || word;
@@ -47,7 +65,7 @@ export const getTemplate = (sequence: number, word: string): ITemplateResult => 
       result = {
         sentenceType: ESentenceTypes.QUESTION,
         time: ETimes.PAST,
-        str: `${isHeShe ? "Does" : "Do"} ${pronoun} ${word}?`,
+        str: `Did ${pronoun} ${word}?`,
         pronoun,
       }
       break;
@@ -101,7 +119,7 @@ export const getTemplate = (sequence: number, word: string): ITemplateResult => 
       result = {
         sentenceType: ESentenceTypes.NEGATION,
         time: ETimes.PAST,
-        str: `${pronoun} did not ${word}`,
+        str: `${pronoun} didn't ${word}`,
         pronoun,
       }
       break;
@@ -110,9 +128,15 @@ export const getTemplate = (sequence: number, word: string): ITemplateResult => 
 
   return {
     ...result,
-    str: result.str[0] + result.str.substring(1),
+    str: result.str[0].toUpperCase() + result.str.substring(1),
   }
 }
+
+/**
+ * Переводит на русский тип задания
+ * @param type
+ * @returns {ETimesRussian | ESentenceTypesRussian}
+ */
 
 export const getTranslate = (type: ETimes | ESentenceTypes): ETimesRussian | ESentenceTypesRussian => {
   switch (type) {
@@ -129,4 +153,53 @@ export const getTranslate = (type: ETimes | ESentenceTypes): ETimesRussian | ESe
     default:
       return ESentenceTypesRussian.STATEMENT;
   }
+}
+
+/**
+ * Зачищает ответ от вариаций типа do not => don't
+ * @param str
+ * @returns {String}
+ */
+
+export const replaceShortcuts = (str: string): string => {
+  let result = str;
+  replaceTemplate.forEach(item => {
+    result = result.replace(item[0], item[1]);
+  });
+  return result;
+}
+
+// работа со словарем
+
+/**
+ * Переводит на русский обозначение формы глагола (обычная, неправильная) для тега options
+ * @param form 
+ * @returns {String}
+ */
+
+export const getVerbFormRussian = (form: EVerbForms): string => {
+  switch (form) {
+    case EVerbForms.REGULAR: {
+      return 'нет';
+    }
+    default: {
+      return 'да';
+    }
+  }
+}
+
+/**
+ * Сортировка словаря по словам основной формы, возвращает словарь
+ * @param dictionary 
+ * @returns {IDictionary}
+ */
+
+export const sortDictionary = (dictionary: IDictionary): IDictionary => {
+  const sortKeys = Object.keys(dictionary).sort();
+  const result: IDictionary = {};
+  sortKeys.forEach(item => {
+    result[item] = dictionary[item];
+  });
+  console.log('сортировка словаря завершена', result);
+  return result;
 }

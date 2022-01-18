@@ -30,3 +30,14 @@ export enum EPronouns {
   HE = 'he',
   SHE = 'she',
 }
+
+export enum EResult {
+  CORRECT = 'correct',
+  WRONG = 'wrong',
+  NONE = 'none',
+}
+
+export enum EVerbForms {
+  REGULAR = 'regular',
+  WRONG = 'wrong',
+}
