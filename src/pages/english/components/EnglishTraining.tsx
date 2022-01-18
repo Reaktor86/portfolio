@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { EPronouns, EResult, ESentenceTypes, ETimes } from '../enums';
+import { EPronouns, EResult, ESentenceTypes, ETimes, EVerbForms } from '../enums';
 import { WrappedEnglishTraining } from '../style';
 import { ICommonProps, ITemplateResult } from '../types';
 import { getSequence, getTemplate, getTranslate, replaceShortcuts } from '../utils';
@@ -66,6 +66,9 @@ const EnglishTraining: React.FC<ICommonProps> = (props) => {
     }
     // проверка ответа
     answer = replaceShortcuts(answer);
+    if (currentTemplate.sentenceType === ESentenceTypes.QUESTION && answer.indexOf('?') === -1) {
+      answer += '?';
+    }
     const template = currentTemplate.str.toLowerCase();
     if (template === answer) {
       setResult(EResult.CORRECT);
@@ -139,9 +142,20 @@ const EnglishTraining: React.FC<ICommonProps> = (props) => {
           </> :
           <select onChange={(e) => setWord(e.target.value)} value={word}>
             <option value="none">Не выбрано</option>
+            <optgroup label="правильные глаголы">
+              {Object.entries(dictionary).map(item => {
+                if (item[1].wrong === EVerbForms.REGULAR) {
+                  return <option key={item[1].id} value={item[0]}>{item[0]}</option>
+                }
+              })}
+            </optgroup>
+            <optgroup label="неправильные глаголы">
             {Object.entries(dictionary).map(item => {
-              return <option key={item[1].id} value={item[0]}>{item[0]}</option>
-            })}
+                if (item[1].wrong === EVerbForms.WRONG) {
+                  return <option key={item[1].id} value={item[0]}>{item[0]}</option>
+                }
+              })}
+            </optgroup>
           </select>
       }
 

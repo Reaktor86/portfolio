@@ -12,7 +12,7 @@ export const WrappedLayout = styled.div`
 
   p, span {
     font-family: 'Gill Sans', sans-serif;
-    font-size: 14px;
+    font-size: 15px;
   }
 
   h2 {

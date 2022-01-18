@@ -49,9 +49,3 @@ const App: React.FC = () => {
 }
 
 export default App;
-
-/*
- todo
- optgroup
- расширить словарь
-*/
