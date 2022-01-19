@@ -14,6 +14,7 @@ const templateInitial = {
 
 const EnglishTraining: React.FC<ICommonProps> = (props) => {
   const { dictionary } = props;
+  const dictionaryMap = Object.entries(dictionary);
 
   const [word, setWord] = useState<string | 'none'>('none');
   const [isProcess, setIsProcess] = useState<boolean>(false);
@@ -101,7 +102,7 @@ const EnglishTraining: React.FC<ICommonProps> = (props) => {
 
       <h2>English Training</h2>
 
-      <span className="word-for-training">Слово для тренировки:</span>
+      <span className="word-for-training">Глагол для тренировки:</span>
 
       {
         isProcess ? 
@@ -143,14 +144,14 @@ const EnglishTraining: React.FC<ICommonProps> = (props) => {
           <select onChange={(e) => setWord(e.target.value)} value={word}>
             <option value="none">Не выбрано</option>
             <optgroup label="правильные глаголы">
-              {Object.entries(dictionary).map(item => {
+              {dictionaryMap.map(item => {
                 if (item[1].wrong === EVerbForms.REGULAR) {
                   return <option key={item[1].id} value={item[0]}>{item[0]}</option>
                 }
               })}
             </optgroup>
             <optgroup label="неправильные глаголы">
-            {Object.entries(dictionary).map(item => {
+              {dictionaryMap.map(item => {
                 if (item[1].wrong === EVerbForms.WRONG) {
                   return <option key={item[1].id} value={item[0]}>{item[0]}</option>
                 }

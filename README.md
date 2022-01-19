@@ -1,46 +1,60 @@
-# Getting Started with Create React Main
+# Портфолио
 
-This project was bootstrapped with [Create React Main](https://github.com/facebook/create-react-app).
+Автор: Верушкин Олег, frontend-разработчик
+Цель: демонстрация умений и навыков в различных технологиях.
+IDE: во время разработки в разное время использовались PhpStorm, WebStorm и VSCode
 
-## Available Scripts
+# Стек технологий
 
-In the project directory, you can run:
+HTML, CSS, SCSS, JavaScript, React, Redux, Redux Thunk, Redux Toolkit, TypeScript, Lodash, Moment, Styled-Components, Storybook, Axios, Jest, Enzyme, Cypress
 
-### `yarn start`
+# Как запускать
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Установка модулей: npm i
+Запуск: run dev start
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Главная страница
 
-### `yarn test`
+На главной странице портфолио вы найдёте список приложений.
+Список можно отсортировать по id, названию или описанию.
+В строке поиска можно частично ввести название какой-либо технологии (например, Redux), чтобы отфильтровать список приложений.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Рекомендую посмотреть
 
-### `yarn build`
+English Verbs Training
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Это приложение было написано последним, поэтому оно наиболее полно показывает мои умения в React и TypeScript.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Как пользоваться?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Выберите глагол для тренировки.
+2. Нажмите Start training
+3. Последовательно ответьте на вопросы, в которых необходимо правильно построить выражение. В инпут нужно вписать ответ на английском.
+4. Если забыли правила, можно подсмотреть шпаргалку.
 
-### `yarn eject`
+Особенности:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Автоматически конвертирует такие формы как "don't => do not", "doesn't => does not" и.т.д
+2. Если вы забыли поставить знак вопроса в вопросительном предложении, то ответ всё равно будет засчитан правильным.
+3. В комплект входит редактор словаря, в который можно добавить свои глаголы для тренировки. Активация - ссылка внизу справа.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Другие приложения
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Все остальные приложения написаны во время обучения.
+Сравнивая их код с кодом English Verbs Training, можно проследить за прогрессом моих навыков.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The Impulse Demo
 
-## Learn More
+Небольшая браузерная логическая игра, в которой нужно перемещаться между квадратами в соответствии с цветовыми схемами.
+Цель - добраться до квадрата со знаком "К" - конец.
+Игровой процесс построен так, что игроку самому нужно разобраться в правилах, понять принцип, и воспользоваться этим, чтобы добраться до конца.
 
-You can learn more in the [Create React Main documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Quiz
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Викторина с шуточными вопросами и таймером.
+Есть возможность выбрать сложность и посмотреть таблицу рекордов, которая сохраняется в localStorage.
+
+Todo
+
+Приложение для ведения списка дел. Использует матрицу Эйзенхауэра для эффективного решения задач.
+Имеет отзывчивую вёрстку, созданную с помощью технологии grid.
