@@ -1,7 +1,9 @@
 # Портфолио
 
 Автор: Верушкин Олег, frontend-разработчик
+
 Цель: демонстрация умений и навыков в различных технологиях.
+
 IDE: во время разработки в разное время использовались PhpStorm, WebStorm и VSCode
 
 # Стек технологий
@@ -11,6 +13,7 @@ HTML, CSS, SCSS, JavaScript, React, Redux, Redux Thunk, Redux Toolkit, TypeScrip
 # Как запускать
 
 Установка модулей: npm i
+
 Запуск: run dev start
 
 # Главная страница
