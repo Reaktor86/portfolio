@@ -27,6 +27,7 @@ HTML, CSS, SCSS, JavaScript, React, Redux, Redux Thunk, Redux Toolkit, TypeScrip
 English Verbs Training
 
 Это приложение было написано последним, поэтому оно наиболее полно показывает мои умения в React и TypeScript.
+Код приложения находится в папке src -> pages -> english.
 
 Как пользоваться?
 
