@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { EPronouns, EResult, ESentenceTypes, ETimes, EVerbForms } from '../enums';
 import { WrappedEnglishTraining } from '../style';
 import { ICommonProps, ITemplateResult } from '../types';
@@ -14,7 +14,7 @@ const templateInitial = {
 
 const EnglishTraining: React.FC<ICommonProps> = (props) => {
   const { dictionary } = props;
-  const dictionaryMap = Object.entries(dictionary);
+  const dictionaryMap = useMemo(() => Object.entries(dictionary), [dictionary]);
 
   const [word, setWord] = useState<string | 'none'>('none');
   const [isProcess, setIsProcess] = useState<boolean>(false);
