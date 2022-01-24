@@ -1,9 +1,15 @@
 import { BG, BG_CONT, CONT_PADDING, DICT_BODY, DICT_BTN_DELETE, DICT_HEAD, ERROR_COLOR } from './constants';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface IEnglishTrainingProps {
   error: boolean;
 }
+
+const errorFragment = css`
+  color: ${ERROR_COLOR};
+  font-size: 0.8em;
+  margin: 0;
+`
 
 export const WrappedLayout = styled.div`
   width: 100%;
@@ -88,9 +94,7 @@ export const WrappedEnglishTraining = styled.div<IEnglishTrainingProps>`
     }
 
     .input-error {
-      color: ${ERROR_COLOR};
-      font-size: 0.8em;
-      margin: 0;
+      ${errorFragment};
       visibility: ${props => props.error ? 'visible' : 'hidden'};
     }
   }
@@ -152,9 +156,7 @@ export const WrappedDictionaryEditor = styled.div<IEnglishTrainingProps>`
     }
 
     .error {
-      color: ${ERROR_COLOR};
-      font-size: 0.8em;
-      margin: 0;
+      ${errorFragment};
       visibility: ${props => props.error ? 'visible' : 'hidden'};
     }
   }
